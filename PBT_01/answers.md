@@ -6,7 +6,7 @@ Cau A1
     3→ Đến data center của Shoppe ở Hà Nội
     4→ Server xử lý: "Minh muốn xem áo phông"
     5→ Response chạy ngược lại: cáp quang → VNPT → router → laptop
-    6→ Chrome nhận file HTML, CSS, JS → render ra giao diện → Minh thấy mẫu áo phông
+    6→ Chrome nhận file HTML, CSS, JS → render ra giao diện →  Thấy mẫu áo phông
 2 Trong DevTools của Chrome, tab Network cho thấy thông tin gì?
         tab network cho phép XEM WEBSITE tải những gì (mục 4.3 Chương 1)
 Cau A2-Semintic HTML
@@ -72,6 +72,7 @@ Câu A4
 Phần B bài B4
 4.1 Các thẻ được sử dụng trong screenshot là:<div>,<section>,<picture>,<source>,<img>,<a>
 Các thẻ mà trang shoppe không sửa dụng là:<artical>,<figure>+<figcaption>
-4.2  Thẻ form với action="/timkiem"
+4.2 Các trang trên em chưa tìm thấy thẻ table 
+4.3  Thẻ form với action="/timkiem"
 method không khai báo nên nó mặc định là Get (Thông tin đẩy lên thanh url)
-4.3 <input type="text"> được sử dụng trong form để tìm kiếm
+ <input type="text"> được sử dụng trong form để tìm kiếm
