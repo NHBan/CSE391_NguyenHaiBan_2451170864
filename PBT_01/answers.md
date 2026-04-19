@@ -76,3 +76,13 @@ Các thẻ mà trang shoppe không sửa dụng là:<artical>,<figure>+<figcapti
 4.3  Thẻ form với action="/timkiem"
 method không khai báo nên nó mặc định là Get (Thông tin đẩy lên thanh url)
  <input type="text"> được sử dụng trong form để tìm kiếm
+   
+
+PhanC câu C2
+Thứ nhất là về SEO (Tối ưu công cụ tìm kiếm). Google không "nhìn" thấy giao diện như chúng ta; chúng đọc cấu trúc mã nguồn. Khi bạn dùng <article> hay <section>, bạn đang trực tiếp chỉ dẫn cho Google biết đâu là nội dung quan trọng nhất. Một trang web dùng toàn <div> sẽ giống như một cuốn sách không có mục lục và tiêu đề chương, khiến bot mất nhiều thời gian hơn để hiểu và khó có thể xếp hạng cao.
+
+Thứ hai là tính Accessibility (Khả năng tiếp cận). Đây là yếu tố nhân văn và chuyên nghiệp trong lập trình. Những người khiếm thị sử dụng trình đọc màn hình (Screen Reader) để duyệt web. Nếu bạn dùng <nav>, trình đọc sẽ thông báo "Đây là phần điều hướng". Nếu bạn chỉ dùng <div class="nav">, trình đọc chỉ coi đó là một cái hộp vô danh, khiến người dùng cực kỳ khó khăn trong việc thao tác.
+
+Hãy nhìn vào ví dụ thực tế này: Khi bạn xây dựng trang chi tiết sản phẩm, thay vì dùng <div class="ten-sp">, bạn dùng <h1>. Trình duyệt sẽ tự động ưu tiên nội dung trong <h1> để hiển thị trên kết quả tìm kiếm. Hoặc khi dùng thẻ <time datetime="2026-04-19">, các ứng dụng lịch có thể tự động nhận diện ngày tháng để nhắc hẹn cho người dùng—điều mà một thẻ <div> chứa văn bản thuần túy không bao giờ làm được.
+
+Tuy nhiên, mình đồng ý là <div> vẫn có chỗ đứng riêng. Nó cực kỳ phù hợp cho các mục đích trình bày thuần túy . Ví dụ: khi bạn cần tạo một cái khung bọc ngoài để căn giữa trang bằng Flexbox, hoặc tạo một lớp phủ (overlay) mờ phía sau một cửa sổ thông báo . Những thành phần này không có ý nghĩa về nội dung, nên dùng div là lựa chọn tối ưu nhất để code không bị rác.
