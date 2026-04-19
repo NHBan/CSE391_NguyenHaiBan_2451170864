@@ -16,6 +16,32 @@ Cau A2-Semintic HTML
     Lỗi khối nội dung sản phẩm: Sản phẩm là một phần nội dung độc lập, nhưng lại đang dùng 
     <div class="product"> thay vì thẻ <article>
     Lỗi phần chân trang: Dùng <div class="footer"> thay vì dùng thẻ <footer>
+    Lỗi trong thẻ div cuối cùng:Phần nội dung nên sử dụng &copy thay vì ký tự đặc biệt
+    
+    CODE SAU KHI SUA
+
+<header>
+<div class="logo">ShopTLU</div>
+<nav>
+    <ul>
+        <li><a href="/">Trang chủ</a></li>
+        <li><a href="/products">Sản phẩm</a></li>
+    </ul>
+</nav>
+</header>
+<main>
+<article class="product">
+    <h2 class="title">iPhone 16 Pro</h2>
+    <div class="price">25.990.000đ</div>
+    <div class="image">
+        <img src="iphone.jpg" alt="iPhone 16 Pro">
+    </div>
+</article>
+</main>
+
+<footer>
+    &copy; 2026 ShopTLU
+</footer>
 
 Câu A3 — Block vs Inline
     Không chạy code, hãy vẽ tay (hoặc mô tả bằng text art) kết quả hiển thị của đoạn HTML sau. Giải thích tại sao.
@@ -39,4 +65,13 @@ Câu A4
     2Sử dụng table sẽ không tốt cho SEO và Accessibility bằng việc sử dụng các thẻ có tên gọi rõ ràng (Bản đồ Semantic Elements)
     3 Khó tương thích  tương thích với điện thoại dó các thẻ trong table vô cùng cứng ngắt
     4 Nếu như table phức tạp sẽ tốn nhiều thời gian tải trang hơn
-    5 Khó cho việc bảo trì và nâng câops code bởi các thẻ <th>,<tr>,<td> rất nhiều và lặp lại sẽ rất khó cho lập trình viên
+    5 Khó cho việc bảo trì và nâng cấp code bởi các thẻ <th>,<tr>,<td> rất nhiều và lặp lại sẽ rất khó cho lập trình viên
+
+
+
+Phần B bài B4
+4.1 Các thẻ được sử dụng trong screenshot là:<div>,<section>,<picture>,<source>,<img>,<a>
+Các thẻ mà trang shoppe không sửa dụng là:<artical>,<figure>+<figcaption>
+4.2  Thẻ form với action="/timkiem"
+method không khai báo nên nó mặc định là Get (Thông tin đẩy lên thanh url)
+4.3 <input type="text"> được sử dụng trong form để tìm kiếm
