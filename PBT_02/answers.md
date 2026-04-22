@@ -68,3 +68,85 @@ Caau B1
  tại sao HTML không thể validate confirm password
     -Căn bản HTML không phải là ngôn ngữ lập trình mà đây là ngôn ngữ siêu văn bản nên không thể lấy ra dữ liệu ở textbox pasword để so sánh được
     -Tính cục bộ: nên phần dữ liệu trong ô confirm pasword HTML không thể đối chiếu với textbox mật khẩu được
+
+
+
+
+Phan C:
+<form>
+Tên: <input type="text">
+
+<input type="email" placeholder="Email của bạn">
+
+<input type="password" placeholder="Mật khẩu">
+<input type="password" placeholder="Nhập lại mật khẩu">
+
+Phone: <input type="text" value="0901234567">
+
+<select>
+    <option>Hà Nội</option>
+    <option>TP.HCM</option>
+</select>
+
+<label>
+    Tôi đồng ý điều khoản
+</label>
+
+<input type="submit" value="Gửi">
+</form>
+Lỗi 1: Dòng 2 — Input "Tên" không có <label for="...">, vi phạm accessibility 
+
+Sửa: <label for="name">Tên:</label> <input type="text" id="name" name="name" required>
+
+Lỗi 2: Dòng 4 — Input "Email" thiếu thuộc tính name và id, đồng thời không có label, chỉ dùng placeholder  sẽ biến mất khi gõ, không thay thế được label.
+
+Sửa: <label for="email">Email:</label> <input type="email" id="email" name="email" placeholder="Email của bạn" required>
+
+Lỗi 3: Dòng 6 & 7 — Hai ô Password thiếu id, name và không thể phân biệt được mục đích nếu không có label,HTML không thể tự validate "Nhập lại mật khẩu", nhưng cần cấu trúc đúng trước.
+
+Sửa: <label for="pwd">Mật khẩu:</label> <input type="password" id="pwd" name="password" required>
+<label for="cpwd">Nhập lại mật khẩu:</label> <input type="password" id="cpwd" name="confirm_password" required>
+
+Lỗi 4: Dòng 9 — Input "Phone" dùng type="text". Nên dùng type="tel" để trình duyệt di động hiển thị bàn phím số và hỗ trợ validation tốt hơn.
+
+Sửa: <label for="phone">Phone:</label> <input type="tel" id="phone" name="phone" value="0901234567">
+
+Lỗi 5: Dòng 11 — Thẻ <select> thiếu thuộc tính name (dữ liệu sẽ không được gửi lên server) và không có label.
+
+Sửa: <label for="city">Thành phố:</label> <select id="city" name="city">...</select>
+
+Lỗi 6: Dòng 12 & 13 — Các thẻ <option> thiếu thuộc tính value. Khi gửi form, server sẽ nhận giá trị rỗng hoặc không xác định.
+
+Sửa: <option value="hanoi">Hà Nội</option> <option value="hcm">TP.HCM</option>
+
+Lỗi 7: Dòng 16 — Thẻ <label> "Tôi đồng ý" không được liên kết với một <input type="checkbox">. Label này đang đứng cô đơn và không có chức năng chọn.
+
+Sửa: <input type="checkbox" id="terms" name="terms" required> <label for="terms">Tôi đồng ý điều khoản</label>
+
+Lỗi 8: Dòng 20 — Sử dụng <input type="submit"> là cách cũ. Best practice hiện nay là dùng thẻ <button type="submit"> để dễ dàng tùy biến nội dung và đồng nhất với button khác.
+
+Sửa: <button type="submit">Gửi</button>
+Cau C2:
+1 Viết pattern regex cho CMND/CCCD và Số tài khoản
+<label for="cccd">Số CMND/CCCD (12 số):</label>
+<input type="text" id="cccd" name="cccd" 
+       pattern="\d{12}" 
+       title="Vui lòng nhập đúng 12 chữ số CMND/CCCD" required>
+
+<label for="stk">Số tài khoản (10-15 số):</label>
+<input type="text" id="stk" name="stk" 
+       pattern="\d{10,15}" 
+       title="Số tài khoản phải từ 10 đến 15 chữ số" required>
+
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+
+<label for="pin">Mã PIN (6 số):</label>
+<input type="password" id="pin" name="pin" 
+       pattern="\d{6}" 
+       inputmode="numeric"
+       title="Mã PIN phải gồm đúng 6 chữ số" required>
+2Giải thích: HTML5 validation đủ an toàn cho ứng dụng ngân hàng chưa? Tại sao?
+Chưa đủ an toàn
+-Khi người dùng chọn kiểm tra và xóa đi các thuộc tính reqired thì có thể gửi dữ liệu lỗi lên sever
+-HTML5 chỉ hộ trợ nhấp đúng định dạng chứ không thể kiểm tra được nội dung
