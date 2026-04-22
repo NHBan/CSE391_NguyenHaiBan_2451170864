@@ -62,3 +62,9 @@ figcaption dùng để mô tả đặc điểm của ảnh
 Khi nào dùng Cách 1, khi nào dùng Cách 2? Cho 2 ví dụ thực tế cho mỗi cách
     - Sử dụng thẻ img khi chỉ muốn hình ảnh đi riêngg lẻ mà không cần chú thích
     - sử dụng thẻ figure và figcaption khi muốn đây là một khối riêng biệt người đọc có thể nhận biết được nội dung mà không cần phụ thuộc vào các phần ở trên
+
+
+Caau B1
+ tại sao HTML không thể validate confirm password
+    -Căn bản HTML không phải là ngôn ngữ lập trình mà đây là ngôn ngữ siêu văn bản nên không thể lấy ra dữ liệu ở textbox pasword để so sánh được
+    -Tính cục bộ: nên phần dữ liệu trong ô confirm pasword HTML không thể đối chiếu với textbox mật khẩu được
