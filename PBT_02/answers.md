@@ -146,7 +146,14 @@ Cau C2:
        pattern="\d{6}" 
        inputmode="numeric"
        title="Mã PIN phải gồm đúng 6 chữ số" required>
-2Giải thích: HTML5 validation đủ an toàn cho ứng dụng ngân hàng chưa? Tại sao?
+2 Giải thích: HTML5 validation đủ an toàn cho ứng dụng ngân hàng chưa? Tại sao?
 Chưa đủ an toàn
 -Khi người dùng chọn kiểm tra và xóa đi các thuộc tính reqired thì có thể gửi dữ liệu lỗi lên sever
 -HTML5 chỉ hộ trợ nhấp đúng định dạng chứ không thể kiểm tra được nội dung
+3 Liệt kê 3 loại validation mà HTML5 KHÔNG THỂ làm được (phải dùng JavaScript)
+- Xác thực mật khẩu và nhập lại mật khẩu
+-Xác thực mac capchar
+-xác nhận tài khoản mật khẩu đúng
+4 Nêu 2 rủi ro bảo mật nếu chỉ validate trên Frontend mà không validate Backend
+    -Những cuộc tấn công vào database bằng mã độc nhập vào input
+    -Người dùng có thể chỉnh thuộc tính trong phần Kiểm tra lúc đó có thể gửi dữ liệu lên server nếu không có sự kiểm tra ở backend 
