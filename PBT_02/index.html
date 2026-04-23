@@ -3,38 +3,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>3N shop</title>
+    <title>Document</title>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="">Trang chu</a></li>
-                <li><a href="">San pham</a></li>
-                <li><a href="">Lien he</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <div class="container">
-            <section class="product">
-                <h2>Danh sach san pham</h2>
-                <article>
-                    <figure>
-                        <img src="#" alt="Iphone 16 ne" loading="lazy">
-                        <figcaption>Day la iphone 16 </figcaption>
-                    </figure>
-                    <div class="description">
-                        <h2>Iphone 16 do</h2>
-                        <p>Thong tin chi tiet may</p>
-                        <button>Them vao gio hang</button>
-                    </div>
-                </article>
-            </section>
-        </div>
-    </main>
-    <footer>
-        <p>&copy;Lien he 3N Shop</p>
-    </footer>
+    <form action="#" method="post">
+        <fieldset>
+            <legend>Dang ky</legend>
+            <label for="email">Nhap email cua ban o day</label>
+            <input type="email" name="" id="email" placeholder="Nhap email ...">
+            <label for="pass">Nhap mat khau cua ban o day</label>
+            <input type="password" id="pass" pattern="(?=.*[A-Z])(?=.*[0-9]).{8,}" title="Vui long nhap co mot chu cai in hoa va 1 so">
+            <label for="confirm-pass">Nhap lai mat khau</label>
+            <input type="password" name="" id="confirm-pass">
+            <label >
+                <input type="checkbox" name="" id="">Dong y voi dieu khoan
+            </label>
+            <button type="submit">Dang ky</button>
+        </fieldset>
+    </form>
 </body>
 </html>
