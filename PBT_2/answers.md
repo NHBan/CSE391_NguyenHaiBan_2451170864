@@ -67,3 +67,45 @@ Caau B1
  tại sao HTML không thể validate confirm password
     -Căn bản HTML không phải là ngôn ngữ lập trình mà đây là ngôn ngữ siêu văn bản nên không thể lấy ra dữ liệu ở textbox pasword để so sánh được
     -Tính cục bộ: nên phần dữ liệu trong ô confirm pasword HTML không thể đối chiếu với textbox mật khẩu được
+
+
+Phan C:
+ 1 <form>
+ 2 Tên: <input type="text">
+3 <input type="email" placeholder="Email của bạn">
+4 <input type="password" placeholder="Mật khẩu">
+5 <input type="password" placeholder="Nhập lại mật khẩu">
+6 Phone: <input type="text" value="0901234567">
+7 <select>
+8 <option>Hà Nội</option>
+9 <option>TP.HCM</option>
+10</select>
+11<label>
+12  Tôi đồng ý điều khoản
+13</label>
+14<input type="submit" value="Gửi">
+15</form>
+Lỗi 1: Dòng 2 — Input "Tên" không có <label for="...">, vi phạm accessibility
+Sửa: <label for="name">Tên:</label> <input type="text" id="name" name="name" required>
+
+Lỗi 2: Dòng 3 — Input "Email" thiếu thuộc tính name và id, đồng thời không có label, chỉ dùng placeholder sẽ biến mất khi gõ, không thay thế được label
+Sửa: <label for="email">Email:</label> <input type="email" id="email" name="email" placeholder="Email của bạn" required>
+
+Lỗi 3: Dòng 4 & 5 — Hai ô Password thiếu id, name và không thể phân biệt được mục đích nếu không có label. HTML không thể tự validate "Nhập lại mật khẩu", nhưng cần cấu trúc đúng trước
+Sửa: <label for="pwd">Mật khẩu:</label> <input type="password" id="pwd" name="password" required>
+<label for="cpwd">Nhập lại mật khẩu:</label> <input type="password" id="cpwd" name="confirm_password" required>
+
+Lỗi 4: Dòng 6 — Input "Phone" dùng type="text". Nên dùng type="tel" để trình duyệt di động hiển thị bàn phím số và hỗ trợ validation tốt hơn
+Sửa: <label for="phone">Phone:</label> <input type="tel" id="phone" name="phone" value="0901234567">
+
+Lỗi 5: Dòng 7 — Thẻ <select> thiếu thuộc tính name (dữ liệu sẽ không được gửi lên server) và không có label
+Sửa: <label for="city">Thành phố:</label> <select id="city" name="city">...</select>
+
+Lỗi 6: Dòng 8 & 9 — Các thẻ <option> thiếu thuộc tính value. Khi gửi form, server sẽ nhận giá trị rỗng hoặc không xác định
+Sửa: <option value="hanoi">Hà Nội</option> <option value="hcm">TP.HCM</option>
+
+Lỗi 7: Dòng 11, 12, 13 — Thẻ <label> "Tôi đồng ý" không được liên kết với một <input type="checkbox">. Label này đang đứng cô đơn và không có chức năng chọn
+Sửa: <input type="checkbox" id="terms" name="terms" required> <label for="terms">Tôi đồng ý điều khoản</label>
+
+Lỗi 8: Dòng 14 — Sử dụng <input type="submit"> là cách cũ. Chuẩn mực hiện nay là dùng thẻ <button type="submit"> để dễ dàng tùy biến nội dung và đồng nhất với button khác
+Sửa: <button type="submit">Gửi</button>
