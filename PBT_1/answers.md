@@ -66,3 +66,10 @@ Tại sao lại không nên dùng
     3 Khó tương thích  tương thích với điện thoại dó các thẻ trong table vô cùng cứng ngắt
     4 Nếu như table phức tạp sẽ tốn nhiều thời gian tải trang hơn
     5 Khó cho việc bảo trì và nâng cấp code bởi các thẻ <th>,<tr>,<td> rất nhiều và lặp lại sẽ rất khó cho lập trình viên
+Phần B bài B4
+4.1 Các thẻ được sử dụng trong screenshot là:<div>,<section>,<picture>,<source>,<img>,<a>
+Các thẻ mà trang shoppe không sửa dụng là:<artical>,<figure>+<figcaption>
+4.2 Các trang trên em chưa tìm thấy thẻ table 
+4.3  Thẻ form với action="/timkiem"
+method không khai báo nên nó mặc định là Get (Thông tin đẩy lên thanh url)
+ <input type="text"> được sử dụng trong form để tìm kiếm
