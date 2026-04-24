@@ -143,3 +143,4 @@ Chưa đủ an toàn
     -Những cuộc tấn công vào database bằng mã độc nhập vào input
     -Người dùng có thể chỉnh thuộc tính trong phần Kiểm tra lúc đó có thể gửi dữ liệu lên server nếu không có sự kiểm tra ở backend 
 
+Link video:https://drive.google.com/file/d/17hOo5eZuFmseta_ZYqwYAQNCeFl-XHRk/view?usp=drive_link
