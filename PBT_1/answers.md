@@ -9,3 +9,36 @@ Cau A1
     6→ Chrome nhận file HTML, CSS, JS → render ra giao diện →  Thấy mẫu áo phông
 2 Trong DevTools của Chrome, tab Network cho thấy thông tin gì?
         tab network cho phép XEM WEBSITE tải những gì (mục 4.3 Chương 1)
+Cau A2-Semintic HTML
+    Lỗi phần đầu trang: Dùng <div class="header"> thay vì thẻ chuẩn <header>
+    Lỗi menu điều hướng: Dùng <div class="menu"> để bọc các đường link chính thay vì dùng thẻ <nav>
+    Lỗi vùng nội dung chính: Dùng <div class="main"> thay vì dùng thẻ <main>
+    Lỗi khối nội dung sản phẩm: Sản phẩm là một phần nội dung độc lập, nhưng lại đang dùng 
+    <div class="product"> thay vì thẻ <article>
+    Lỗi phần chân trang: Dùng <div class="footer"> thay vì dùng thẻ <footer>
+    Lỗi trong thẻ div cuối cùng:Phần nội dung nên sử dụng &copy thay vì ký tự đặc biệt
+    
+    CODE SAU KHI SUA
+
+<header>
+<div class="logo">ShopTLU</div>
+<nav>
+    <ul>
+        <li><a href="/">Trang chủ</a></li>
+        <li><a href="/products">Sản phẩm</a></li>
+    </ul>
+</nav>
+</header>
+<main>
+<article class="product">
+    <h2 class="title">iPhone 16 Pro</h2>
+    <div class="price">25.990.000đ</div>
+    <div class="image">
+        <img src="iphone.jpg" alt="iPhone 16 Pro">
+    </div>
+</article>
+</main>
+
+<footer>
+    &copy; 2026 ShopTLU
+</footer>
