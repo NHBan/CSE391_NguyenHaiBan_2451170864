@@ -109,3 +109,37 @@ Sửa: <input type="checkbox" id="terms" name="terms" required> <label for="term
 
 Lỗi 8: Dòng 14 — Sử dụng <input type="submit"> là cách cũ. Chuẩn mực hiện nay là dùng thẻ <button type="submit"> để dễ dàng tùy biến nội dung và đồng nhất với button khác
 Sửa: <button type="submit">Gửi</button>
+
+
+Cau C2:
+1 Viết pattern regex cho CMND/CCCD và Số tài khoản
+<label for="cccd">Số CMND/CCCD (12 số):</label>
+<input type="text" id="cccd" name="cccd" 
+       pattern="\d{12}" 
+       title="Vui lòng nhập đúng 12 chữ số CMND/CCCD" required>
+
+<label for="stk">Số tài khoản (10-15 số):</label>
+<input type="text" id="stk" name="stk" 
+       pattern="\d{10,15}" 
+       title="Số tài khoản phải từ 10 đến 15 chữ số" required>
+
+<label for="email">Email:</label>
+<input type="email" id="email" name="email" required>
+
+<label for="pin">Mã PIN (6 số):</label>
+<input type="password" id="pin" name="pin" 
+       pattern="\d{6}" 
+       inputmode="numeric"
+       title="Mã PIN phải gồm đúng 6 chữ số" required>
+2 Giải thích: HTML5 validation đủ an toàn cho ứng dụng ngân hàng chưa? Tại sao?
+Chưa đủ an toàn
+-Khi người dùng chọn kiểm tra và xóa đi các thuộc tính reqired thì có thể gửi dữ liệu lỗi lên sever
+-HTML5 chỉ hộ trợ nhấp đúng định dạng chứ không thể kiểm tra được nội dung
+3 Liệt kê 3 loại validation mà HTML5 KHÔNG THỂ làm được (phải dùng JavaScript)
+- Xác thực mật khẩu và nhập lại mật khẩu
+-Xác thực mac capchar
+-xác nhận tài khoản mật khẩu đúng
+4 Nêu 2 rủi ro bảo mật nếu chỉ validate trên Frontend mà không validate Backend
+    -Những cuộc tấn công vào database bằng mã độc nhập vào input
+    -Người dùng có thể chỉnh thuộc tính trong phần Kiểm tra lúc đó có thể gửi dữ liệu lên server nếu không có sự kiểm tra ở backend 
+
