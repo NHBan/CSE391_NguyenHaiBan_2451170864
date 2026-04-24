@@ -114,3 +114,21 @@ Nâng cao: Nếu .box-a có margin-bottom: -10px và .box-b có margin-top: 40px
 →Đối với 2 margin mà trái dấu sẽ thực hiện cộng để lấy ra khoảng cách sau cùng:40+(-10)=30px
 →Mở rộng: với 2 margin nhỏ hơn 0 thì lấy số nhỏ nhất làm khoảng cách
 
+Câu A4 — Specificity (Độ ưu tiên)
+Cho các CSS rules sau cùng target 1 element <p class="price" id="main-price">:
+p { color: black; }                    /* Rule A */
+.price { color: blue; }               /* Rule B */
+#main-price { color: red; }           /* Rule C */
+p.price { color: green; }             /* Rule D */
+1 Tính specificity score (a, b, c) cho mỗi rule
+→Rule A(0,0,1) có 1 element
+→Rule B(0,1,0) có 1 class
+→Rule A(1,0,0) có 1 id
+→Rule A(0,1,1) có 1 class và 1 element
+2 Element sẽ có màu gì? Giải thích
+→element sẽ có màu đỏ bởi Rule C có id nên có mức độ ưu tiên cao hơn và specificity score là (1,0,0)
+3 Nếu thêm <p class="price" id="main-price" style="color: orange;">, element có màu gì?
+→element sẽ có màu cam bởi đây là inline CSS có mức độ cao nhất 
+4 Nếu Rule A thêm !important, element có màu gì? Tại sao?
+→ element sẽ có màu đen bởi !important là ưu tiên cao nhất
+
