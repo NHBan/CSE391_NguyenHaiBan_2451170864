@@ -42,3 +42,17 @@ Cau A2-Semintic HTML
 <footer>
     &copy; 2026 ShopTLU
 </footer>
+Câu A3 — Block vs Inline
+    Không chạy code, hãy vẽ tay (hoặc mô tả bằng text art) kết quả hiển thị của đoạn HTML sau. Giải thích tại sao.
+    <div>Hộp 1</div>
+    <span>Text A</span>
+    <span>Text B</span>
+    <div>Hộp 2</div>
+    <span>Text C</span>
+    <strong>Text D</strong>
+    <div>Hộp 3</div>
+    Hộp 1 Đây là phần tử block nó sẽ luôn bắt đầu từ dòng mới và chiếu chiều rộng nhiều nhất có thể
+    Text A Text B Đây là phần tử inline không xuống dòng mà chỉ chiếm đủ độ rộng
+    Hộp 2 
+    Text C Text D (Boi dam) vì thẻ strong có mang tính chất quan trong 
+    Hộp 3
