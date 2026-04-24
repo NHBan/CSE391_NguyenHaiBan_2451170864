@@ -56,3 +56,13 @@ Câu A3 — Block vs Inline
     Hộp 2 
     Text C Text D (Boi dam) vì thẻ strong có mang tính chất quan trong 
     Hộp 3
+Câu A4 
+<thead>: Đại diện cho phần đầu bảng, được sử dụng riêng để chứa các ô tiêu đề của các cột trong bảng
+<tbody>: Đại diện cho phần thân bảng, là nơi chứa toàn bộ nội dung và dữ liệu chính của bảng
+<tfoot>: Đại diện cho phần chân bảng, thường được đặt ở cuối để chứa các thông tin tổng kết 
+Tại sao lại không nên dùng 
+    1HTML5 cung cấp các thẻ để xây dựng bố ccuj nếu sử dụng table thì sẽ phá vơ đi tiêu chuẩn 
+    2Sử dụng table sẽ không tốt cho SEO và Accessibility bằng việc sử dụng các thẻ có tên gọi rõ ràng 
+    3 Khó tương thích  tương thích với điện thoại dó các thẻ trong table vô cùng cứng ngắt
+    4 Nếu như table phức tạp sẽ tốn nhiều thời gian tải trang hơn
+    5 Khó cho việc bảo trì và nâng cấp code bởi các thẻ <th>,<tr>,<td> rất nhiều và lặp lại sẽ rất khó cho lập trình viên
