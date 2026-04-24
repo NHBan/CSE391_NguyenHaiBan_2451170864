@@ -42,3 +42,39 @@ p {
 Nhược điểm: Tốn thêm yêu cầu để tải file CSS về khi mở trang web lần đầu.
 Khi nào nên dùng: Là phương pháp tiêu chuẩn cho các dự án hiện nay
 
+Câu A2  — CSS Selectors — Dự đoán kết quả
+Cho HTML sau:
+
+<div id="app">
+    <header class="top-bar dark">
+        <h1>ShopTLU</h1>
+        <nav>
+            <a href="/" class="active">Home</a>
+            <a href="/products">Products</a>
+            <a href="/about">About</a>
+        </nav>
+    </header>
+    <main>
+        <article class="product">
+            <h2>iPhone 16</h2>
+            <p class="price">25.990.000đ</p>
+            <p>Mô tả sản phẩm...</p>
+        </article>
+        <article class="product featured">
+            <h2>MacBook Pro</h2>
+            <p class="price">45.990.000đ</p>
+            <p>Mô tả sản phẩm...</p>
+        </article>
+    </main>
+</div>
+Không chạy code, cho biết mỗi selector sau chọn được element nào? (Ghi cụ thể text content)
+
+1. h1                           → Chọn: ShopTLU
+2. .price                       → Chọn: 45.990.000đ
+3. #app header                  → Chọn: Toàn thể khối header
+4. nav a:first-child             → Chọn: Home
+5. .product.featured h2         → Chọn: MacBook Pro
+6. article > p                  → Chọn: 25.990.000đ, 45.990.000đ và Mô tả sản phẩm...;
+7. a[href="/"]                  → Chọn: Home
+8. .top-bar.dark h1              → Chọn: ShopTLU
+
