@@ -1,0 +1,45 @@
+.box {
+    width: 300px;
+    padding: 20px;
+    border: 5px solid;
+}
+
+.border-box {
+    box-sizing: border-box;
+}
+
+.bg-green {
+    background-color: green;
+    color: #ffffff;
+}
+
+.bg-blue {
+    background-color: blue;
+    color: #ffffff;
+}
+
+.container {
+    display: flex;
+    width: 1000px;
+    flex-wrap: wrap;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: rgba(0, 128, 0, 0.39);
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.content {
+    width: 500px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.ads {
+    width: 250px;
+    background-color: rgba(137, 43, 226, 0.397);
+    padding: 15px;
+    box-sizing: border-box;
+}

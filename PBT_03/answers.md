@@ -159,3 +159,10 @@ Trạng thái:
 
 Phần tử giả:
 ::after (trong a::after, a:hover::after)
+
+Câu B2:
+Hộp 1 (content-box): chiều rộng thực tế = 349.6 px (đo từ DevTools)
+Hộp 2 (border-box): chiều rộng thực tế = 300 px (đo từ DevTools)
+Giải thích sự khác biệt:
+Hộp 1 do dùng content-box nên nó sẽ tính thêm phần padding và border ở bên trái và bên phải nên chiều rộng thực tế sẽ lớn hơn độ rộng quy định
+Hộp 2 dùng border-box nên nó sẽ tự động thu nhỏ không gian của phần nội dung để chiều rộng thực tế không vượt quá 300px
