@@ -132,3 +132,30 @@ p.price { color: green; }             /* Rule D */
 4 Nếu Rule A thêm !important, element có màu gì? Tại sao?
 → element sẽ có màu đen bởi !important là ưu tiên cao nhất
 
+Câu B1: Các selectors đã được sử dụng là
+Bộ chọn toàn cục:
+*
+
+Bộ chọn thẻ HTML:
+body, header, footer, a, h2
+
+Bộ chọn lớp:
+.list-style-type-none, .active, .table
+
+Bộ chọn ID:
+#user-frofile
+
+Bộ chọn phần tử con:
+.table th
+
+.table tr:nth-child(even)
+
+.table tr:hover
+
+Trạng thái:
+:hover (trong a:hover, a:hover::after, .table tr:hover)
+
+:nth-child(even) (trong .table tr:nth-child(even))
+
+Phần tử giả:
+::after (trong a::after, a:hover::after)
