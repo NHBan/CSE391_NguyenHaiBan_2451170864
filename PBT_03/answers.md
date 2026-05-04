@@ -212,3 +212,45 @@ Câu C1:
     Cách 2:Tính toán width của các phần tử một cách thủ công 
             sidebar:300-40-2=258px
             content:660-60-2=598px
+Câu C2
+Cho CSS file:
+
+body { font-size: 16px; color: #333; }
+.container { font-size: 14px; }
+.card { color: blue; }
+.card .title { font-size: 20px; }
+.card p { color: inherit; }
+#featured .title { color: red; }
+.highlight { color: green !important; }
+
+Và HTML:
+<body>
+    <div class="container">
+        <div class="card" id="featured">
+            <h2 class="title highlight">Sản phẩm A</h2>
+            <p>Mô tả sản phẩm</p>
+        </div>
+        <div class="card">
+            <h2 class="title">Sản phẩm B</h2>
+            <p class="highlight">Mô tả sản phẩm B</p>
+        </div>
+    </div>
+</body>
+
+1. "Sản phẩm A" (h2) có font-size = 20 và color = green
+
+font-size = 20px: Bị tác động bởi CSS trực tiếp (.card .title), luật trực tiếp luôn ưu tiên hơn luật kế thừa từ thẻ cha
+
+color = green: Vì class .highlight có dùng !important nên giành quyền ưu tiên cao nhất
+2. "Mô tả sản phẩm" (p trong card featured) có color = blue
+
+color = blue: Cú pháp color: inherit bắt buộc thẻ <p> phải sao chép màu của thẻ cha trực tiếp (.card đang có màu blue)
+
+3. "Sản phẩm B" (h2) có font-size = 20 và color = blue
+
+font-size = 20px: Được áp dụng CSS trực tiếp từ selector .card .title
+
+color = blue: Do không có CSS màu trực tiếp, chữ tự động kế thừa màu blue của thẻ cha là .card
+
+4. "Mô tả sản phẩm B" (p.highlight) có color = green
+color = green: Selector .highlight có chứa !important nên giành quyền ưu tiên tuyệt đối
