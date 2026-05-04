@@ -1,0 +1,30 @@
+*{
+    color:blue;
+}
+p{
+    color:aqua;
+}
+.text{
+    color:black;
+}
+.highlight{
+    color:blueviolet;
+}
+#demo{
+    color:blue;
+}
+body .text{
+    color:red
+}
+body #demo{
+    color:rgba(69, 114, 99,0.9)
+}
+p.text{
+    color:darkorange;
+}
+#demo.text{
+    color:fuchsia;
+}
+p.text#demo{
+    color:darkred;
+}

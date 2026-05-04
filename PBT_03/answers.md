@@ -166,3 +166,20 @@ Hộp 2 (border-box): chiều rộng thực tế = 300 px (đo từ DevTools)
 Giải thích sự khác biệt:
 Hộp 1 do dùng content-box nên nó sẽ tính thêm phần padding và border ở bên trái và bên phải nên chiều rộng thực tế sẽ lớn hơn độ rộng quy định
 Hộp 2 dùng border-box nên nó sẽ tự động thu nhỏ không gian của phần nội dung để chiều rộng thực tế không vượt quá 300px
+
+Câu B3  
+1 Liệt kê 10 rules + specificity score
+* { color: blue; }                               /* Specificity: 0,0,0 */
+p { color: aqua; }                               /* Specificity: 0,0,1 */
+.text { color: black; }                          /* Specificity: 0,1,0 */
+.highlight { color: blueviolet; }                /* Specificity: 0,1,0 */
+body .text { color: red; }                       /* Specificity: 0,1,1 */
+p.text { color: darkorange; }                    /* Specificity: 0,1,1 */
+#demo { color: blue; }                           /* Specificity: 1,0,0 */
+body #demo { color: rgba(69, 114, 99, 0.9); }    /* Specificity: 1,0,1 */
+#demo.text { color: fuchsia; }                   /* Specificity: 1,1,0 */
+p.text#demo { color:darkred; }  /* Specificity: 1,1,1 */
+2 Element cuối cùng hiển thị màu gì? Tại sao?
+Element cuối cùng có màu là darkred, bởi selector p.text#demo đạt điểm cao nhất (1id,1class,1element)
+4 Thay đổi thứ tự rules trong CSS file. Kết quả có đổi không? Giải thích.
+Kết quả sẽ không đổi, bởi điểm specificity được ưu tiên  Vì 10 rules trên đều có điểm số khác biệt, rule có điểm cao nhất (1,1,1) sẽ luôn được áp dụng bất kể nó nằm ở dòng nào trong file
