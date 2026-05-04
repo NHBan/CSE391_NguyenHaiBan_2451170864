@@ -183,3 +183,32 @@ p.text#demo { color:darkred; }  /* Specificity: 1,1,1 */
 Element cuối cùng có màu là darkred, bởi selector p.text#demo đạt điểm cao nhất (1id,1class,1element)
 4 Thay đổi thứ tự rules trong CSS file. Kết quả có đổi không? Giải thích.
 Kết quả sẽ không đổi, bởi điểm specificity được ưu tiên  Vì 10 rules trên đều có điểm số khác biệt, rule có điểm cao nhất (1,1,1) sẽ luôn được áp dụng bất kể nó nằm ở dòng nào trong file
+
+Phần C
+Câu C1:
+.container {
+    width: 960px;
+    margin: 0 auto;
+}
+.sidebar {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    float: left;
+}
+.content {
+    width: 660px;
+    padding: 30px;
+    border: 1px solid #ccc;
+    float: left;
+}
+1 Tính chiều rộng thực tế của sidebar và content (content-box!)
+    Chiều dài thực tế của sidebar:342px;
+    Chiều dài thực tế của content :722px;
+2 Giải thích tại sao layout bị vỡ
+    layout vỡ bởi sự phình to của sidebar và content (độ dài thực tết 342+722=1064>960px), khi phần tử context không đủ chỗ trống ở hàng hiện tại nó sẽ tự động xuống dòng mới
+3 Đưa ra 2 cách sửa khác nhau (1 cách dùng border-box, 1 cách không dùng)
+    Cách 1:sử dụng border-box:
+    Cách 2:Tính toán width của các phần tử một cách thủ công 
+            sidebar:300-40-2=258px
+            content:660-60-2=598px
