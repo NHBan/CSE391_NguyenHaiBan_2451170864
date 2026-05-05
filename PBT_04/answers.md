@@ -1,4 +1,3 @@
-### Bảng so sánh các thuộc tính Position trong CSS
 
 | Position  |  Vẫn chiếm chỗ trong flow? | Tham chiếu vị trí                 | Cuộn theo trang? | Use case phổ biến |
 | static    | Có                         | Không dùng                        | Có               | Bố cục mặc định. |
