@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./flexbox.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <div class="container-header">
+            <div class="logo">
+                <img src="data:image/webp;base64,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" alt="">
+            </div>
+            <nav class="nav-link d-flex g-2 align-items-center">
+                <a href="" class="text-decoration-none">Home</a>
+                <a href="" class="text-decoration-none">Products</a>
+                <a href="" class="text-decoration-none">About</a>
+            </nav>
+            <div class="auth d-flex g-2 align-items-center">
+                <div><button class="btn">Login</button></div>
+                <div class="btnRegister"><button class="btn">Register</button></div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container-fluid">
+            <div class="container">
+                <div class="col-3">
+                    <article class="product-card">
+                        <div class="produc-img"><img src="https://tse2.mm.bing.net/th/id/OIP.rPtYek7aXjEqF4I1R_y_RwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+                        <div class="product-description">
+                            <h2>Doraemon</h2>
+                            <div class="product-price">
+                                <p class="price-new">1.200.000d</p>
+                                <p class="price-old">2.000.000d</p>
+                            </div>
+                            <p class="decrip">Day la san pham chat luong cao</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-3">
+                    <article class="product-card">
+                        <div class="produc-img"><img src="https://tse2.mm.bing.net/th/id/OIP.rPtYek7aXjEqF4I1R_y_RwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+                        <div class="product-description">
+                            <h2>Doraemon</h2>
+                            <div class="product-price">
+                                <p class="price-new">1.200.000d</p>
+                                <p class="price-old">2.000.000d</p>
+                            </div>
+                            <p class="decrip">Day la san pham chat luong cao</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-3">
+                    <article class="product-card">
+                        <div class="produc-img"><img src="https://tse2.mm.bing.net/th/id/OIP.rPtYek7aXjEqF4I1R_y_RwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+                        <div class="product-description">
+                            <h2>Doraemon</h2>
+                            <div class="product-price">
+                                <p class="price-new">1.200.000d</p>
+                                <p class="price-old">2.000.000d</p>
+                            </div>
+                            <p class="decrip">Day la san pham chat luong cao</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-3">
+                    <article class="product-card">
+                        <div class="produc-img"><img src="https://tse2.mm.bing.net/th/id/OIP.rPtYek7aXjEqF4I1R_y_RwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+                        <div class="product-description">
+                            <h2>Doraemon</h2>
+                            <div class="product-price">
+                                <p class="price-new">1.200.000d</p>
+                                <p class="price-old">2.000.000d</p>
+                            </div>
+                            <p class="decrip">Day la san pham chat luong cao</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-3">
+                    <article class="product-card">
+                        <div class="produc-img"><img src="https://tse2.mm.bing.net/th/id/OIP.rPtYek7aXjEqF4I1R_y_RwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+                        <div class="product-description">
+                            <h2>Doraemon</h2>
+                            <div class="product-price">
+                                <p class="price-new">1.200.000d</p>
+                                <p class="price-old">2.000.000d</p>
+                            </div>
+                            <p class="decrip">Day la san pham chat luong cao</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-3">
+                    <article class="product-card">
+                        <div class="produc-img"><img src="https://tse2.mm.bing.net/th/id/OIP.rPtYek7aXjEqF4I1R_y_RwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+                        <div class="product-description">
+                            <h2>Doraemon</h2>
+                            <div class="product-price">
+                                <p class="price-new">1.200.000d</p>
+                                <p class="price-old">2.000.000d</p>
+                            </div>
+                            <p class="decrip">Day la san pham chat luong cao</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-3">
+                    <article class="product-card">
+                        <div class="produc-img"><img src="https://tse2.mm.bing.net/th/id/OIP.rPtYek7aXjEqF4I1R_y_RwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+                        <div class="product-description">
+                            <h2>Doraemon</h2>
+                            <div class="product-price">
+                                <p class="price-new">1.200.000d</p>
+                                <p class="price-old">2.000.000d</p>
+                            </div>
+                            <p class="decrip">Day la san pham chat luong cao</p>
+                        </div>
+                    </article>
+                </div>
+                <div class="col-3">
+                    <article class="product-card">
+                        <div class="produc-img"><img src="https://tse2.mm.bing.net/th/id/OIP.rPtYek7aXjEqF4I1R_y_RwHaHa?rs=1&pid=ImgDetMain&o=7&rm=3" alt=""></div>
+                        <div class="product-description">
+                            <h2>Doraemon</h2>
+                            <div class="product-price">
+                                <p class="price-new">1.200.000d</p>
+                                <p class="price-old">2.000.000d</p>
+                            </div>
+                            <p class="decrip">Day la san pham chat luong cao</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
