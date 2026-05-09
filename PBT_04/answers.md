@@ -74,3 +74,28 @@ Câu A2:
 | |    Item 7    |                                        |
 | +--------------+                                        |
 +---------------------------------------------------------+
+
+
+Câu C1:
+Câu C1 (10đ) — Flexbox vs Grid: Khi nào dùng gì?
+Cho 5 tình huống layout thực tế. Với mỗi tình huống, trả lời: dùng Flexbox, Grid, hay kết hợp cả hai? Giải thích ngắn gọn tại sao.
+
+Navigation bar ngang (logo + menu + buttons)
+Dùng: Flexbox
+Giải thích: Là layout chiều ngang. Flexbox hoàn hảo để đẩy các cụm phần tử ra xa nhau và căn giữa theo chiều dọc (align-items: center)
+
+Lưới ảnh Instagram (3 cột đều nhau, số ảnh không biết trước)
+Dùng: Grid
+Giải thích: Là layout 2 chiều, các hàng sẽ tự động sinh ra và thẳng hàng hoàn hảo bất kể số lượng ảnh
+
+Layout blog: main content + sidebar
+Dùng: Grid
+Giải thích: Thích hợp dựng cấu trúc lớn. Phân chia tỷ lệ rõ ràng và độc lập với nội dung bên trong 
+
+Footer với 4 cột thông tin (Về chúng tôi, Liên kết, Hỗ trợ, Liên hệ)
+Dùng: Grid
+Giải thích: Dễ dàng chia 4 phần bằng nhau . Nếu dùng Flexbox, chiều rộng các cột dễ bị méo mó tùy thuộc lượng text bên trong mỗi cột
+
+Card sản phẩm (ảnh trên, text giữa, nút dưới — nút luôn dính đáy)
+Dùng: Flexbox
+Giải thích: Layout 1 chiều dọc . Xử lý nút dính đáy cực kỳ đơn giản bằng cách gắn margin-top: auto cho cái nút
