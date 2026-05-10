@@ -125,3 +125,5 @@ Lỗi 3: Sidebar bị co lại khi content quá dài
 .sidebar { width: 250px; }
 .content { flex: 1; }
 - Trong Flexbox, thuộc tính flex-shrink mặc định là 1. Khi .content có nội dung quá lớn và vượt quá không gian, Flexbox sẽ tự động thu nhỏ .sidebar lại để vừa khung hình.
+
+Link video:https://drive.google.com/file/d/1qsVuuedY80Ai0tC8UUB28AhDYZGidTCh/view?usp=sharing
