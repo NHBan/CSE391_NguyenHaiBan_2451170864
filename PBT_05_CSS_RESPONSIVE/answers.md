@@ -66,3 +66,73 @@ Chiều rộng màn hình	.container width
 800px	            720px
 1000px	            960px
 1400px	            1140px
+Câu A4:Đọc chương 16. Giải thích 4 tính năng chính của SCSS và cho ví dụ
+    . Variables (Biến) — "Sửa 1 chỗ, tất cả tự đổi"
+    Giải thích: Cho phép bạn lưu trữ các màu sắc, font chữ, khoảng cách bằng ký hiệu $. SCSS variables hoạt động ở lúc biên dịch  và có thể dùng chung với các hàm SCSS 
+    Ví dụ trong bài:
+    SCSS
+    $color-primary: #7c3aed;
+    $radius-sm: 6px;
+    .btn-primary {
+        background: $color-primary;
+        border-radius: $radius-sm;
+    }
+
+    2. Nesting — Viết CSS lồng nhau theo cấu trúc HTML
+    Giải thích: Giúp code rõ ràng, dễ đọc hơn bằng cách lồng các selector vào nhau thay vì viết lặp đi lặp lại. Sử dụng ký hiệu & để tham chiếu trực tiếp đến selector cha. Không lồng quá 3 cấp để tránh selector quá dài.
+    Ví dụ trong bài:
+
+    SCSS
+    .navbar {
+        background: #1a202c;
+
+        // Dấu & thay thế cho .navbar, tạo thành .navbar__logo
+        &__logo {
+            color: white;
+            font-weight: 700;
+        }
+
+        // Lồng pseudo-class
+        &:hover {
+            background: #000;
+        }
+    }
+
+    3. Mixins — "Hàm CSS tái sử dụng"
+    Giải thích: Đóng gói một cụm code CSS để dùng lại nhiều lần. Định nghĩa bằng @mixin và gọi ra bằng @include. Mixin có thể nhận tham số (parameters) giống như một hàm trong lập trình, rất hữu ích cho các UI components hoặc Media Queries.
+
+    Ví dụ trong bài:
+
+    SCSS
+    // Định nghĩa
+    @mixin flex-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    // Sử dụng
+    .modal {
+        @include flex-center;
+        position: fixed;
+    }
+
+    4. Partials & Import — "Chia file gọn gàng"
+    Giải thích: SCSS cho phép chia nhỏ code thành các file module (ví dụ: _variables.scss, _buttons.scss). Ký hiệu dấu gạch dưới _ (partial) báo cho SCSS biết đừng compile file này thành file CSS riêng lẻ. Sau đó, dùng lệnh @use để gọi tất cả vào một file main.scss duy nhất theo đúng thứ tự.
+    Ví dụ trong bài:
+
+    SCSS
+    // File main.scss
+    @use 'base/variables';
+    @use 'mixins/flexbox';
+    @use 'components/navbar';
+Tại sao trình duyệt KHÔNG đọc được file .scss?
+    Trình duyệt web (như Chrome, Safari, Edge) được  thiết kế  chỉ hiểu duy nhất 3 ngôn ngữ cốt lõi của web: HTML, CSS và JavaScript
+    SCSS là một "ngôn ngữ tiền xử lý"dành riêng cho lập trình viên. Nó chứa các cú pháp mở rộng như biến ($), hàm (@mixin), và viết lồng nhau (nesting) — những thứ hoàn toàn không tồn tại trong tiêu chuẩn của CSS.
+    Nếu bạn cố tình gắn một file .scss vào thẻ <link> của HTML,. Nó sẽ báo lỗi cú pháp hoặc đơn giản là phớt lờ toàn bộ file đó vì không dịch được
+Cần bước gì để chuyển SCSS → CSS?
+    Bước bắt buộc ở giữa gọi là Biên dịch.
+    Bạn viết code: Bạn viết code logic, gọn gàng trong file .scss.
+    Compiler xử lý: Bạn dùng một công cụ biên dịch. Công cụ này sẽ đọc file SCSS của bạn, tính toán các biến, mở khóa phần lồng nhau, chạy các mixin, và dịch tất cả về lại ngôn ngữ CSS nguyên thủy.
+    Tạo ra file mới: Nó tự động sinh ra một file .css thuần túy, có thể dài và lặp lại nhiều hơn, nhưng chuẩn xác.
+    Gắn vào web: Bạn lấy file .css vừa được sinh ra đó gắn vào HTML
