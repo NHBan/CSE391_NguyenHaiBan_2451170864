@@ -18,3 +18,39 @@ initial-scale=1.0: Thiết lập mức độ thu phóng  ban đầu là 100% khi
         Responsive images: Ảnh nhỏ hơn cho mobile (srcset)
         Viewport units cho hero section (không cần tính toán JS)
         System font fallback: -apple-system, BlinkMacSystemFont load ngay, không cần download
+Câu A2:Ghi lại breakpoints chuẩn (theo tài liệu hoặc Bootstrap). Cho mỗi breakpoint:
+    1. X-Small (xs)
+    Kích thước: < 576px
+    Thiết bị đại diện: Điện thoại di động 
+    Hiển thị lưới sản phẩm: 1 cột
+    Class Bootstrap: col-12 
+
+    2. Small (sm)
+    Kích thước: ≥ 576px
+    Thiết bị đại diện: Điện thoại (Màn hình ngang)
+    Hiển thị lưới sản phẩm: 2 cột
+    Class Bootstrap: col-sm-6
+
+    3. Medium (md)
+    Kích thước: ≥ 768px
+    Thiết bị đại diện: Máy tính bảng 
+    Hiển thị lưới sản phẩm: 3 cột
+    Class Bootstrap: col-md-4
+
+    4. Large (lg)
+    Kích thước: ≥ 992px
+    Thiết bị đại diện: Máy tính xách tay 
+    Hiển thị lưới sản phẩm: 4 cột
+    Class Bootstrap: col-lg-3
+
+    5. Extra Large (xl)
+    Kích thước: ≥ 1200px
+    Thiết bị đại diện: Máy tính để bàn 
+    Hiển thị lưới sản phẩm: 4 hoặc 5 cột
+    Class Bootstrap: col-xl-3
+
+    6. Extra Extra Large (xxl)
+    Kích thước: ≥ 1400px
+    Thiết bị đại diện: Màn hình Tivi
+    Hiển thị lưới sản phẩm: 6 cột
+    Class Bootstrap: col-xxl-2
