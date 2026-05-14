@@ -54,3 +54,15 @@ Câu A2:Ghi lại breakpoints chuẩn (theo tài liệu hoặc Bootstrap). Cho m
     Thiết bị đại diện: Màn hình Tivi
     Hiển thị lưới sản phẩm: 6 cột
     Class Bootstrap: col-xxl-2
+Câu A3:Đọc CSS sau, cho biết ở mỗi kích thước màn hình, .container có width bao nhiêu? Điền bảng.
+.container { width: 100%; padding: 10px; }
+@media (min-width: 576px) { .container { width: 540px; } }
+@media (min-width: 768px) { .container { width: 720px; } }
+@media (min-width: 992px) { .container { width: 960px; } }
+@media (min-width: 1200px) { .container { width: 1140px; } }
+Chiều rộng màn hình	.container width
+375px (iPhone SE)	100%
+600px	            540px
+800px	            720px
+1000px	            960px
+1400px	            1140px
