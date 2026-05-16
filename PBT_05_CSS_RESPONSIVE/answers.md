@@ -201,3 +201,34 @@ Câu B3:
     Lệnh compile file scss là:
     ```bash
     sass scss/style.scss css/style.css --watch
+Phần C
+Câu C1:trang Vnexpress
+    A. Kích thước Mobile (Khoảng 375px)
+    Navigation :
+    Thanh menu ngang (chứa các chuyên mục Thời sự, Thế giới, Kinh doanh...) bị ẩn đi hoàn toàn
+    Thay thế bằng Hamburger Menuở góc trái hoặc góc phải trên cùng. Khi bấm vào, một menu dạng dọc sẽ trượt ra 
+    Logo VNExpress được căn giữa để tiết kiệm không gian
+    Lưới content (Grid):
+    Chuyển về 1 cột duy nhất. Các bài báo xếp chồng lên nhau theo chiều dọc
+    Elements bị ẩn: Toàn bộ cột Sidebar bên phải  bị đẩy hẳn xuống cuối trang hoặc ẩn bớt các widget không quan trọng
+    Font size: Tiêu đề bài viết và nội dung tóm tắt được điều chỉnh tăng/giảm tỷ lệ để dễ đọc trên màn hình nhỏ mà không bị vỡ chữ
+
+    B. Kích thước Tablet (Khoảng 768px)
+    Navigation:
+    Thanh menu chuyên mục có thể xuất hiện trở lại dưới dạng thanh cuộn ngang 
+    Vẫn có thể giữ lại Hamburger menu để chứa các chuyên mục phụ không hiển thị hết
+    Lưới content:
+    Chuyển sang cấu trúc 2 cột
+    Cột trái  hiển thị tin chính, cột phải hiển thị các tin phụ hoặc danh sách tin vắn
+    Elements bị ẩn/thay đổi: Sidebar bên phải của bản Desktop bắt đầu xuất hiện lại dưới dạng một cột phụ hẹp hơn
+    Font size: Lớn hơn so với Mobile
+
+    C. Kích thước Desktop (1440px)
+    Navigation:
+    Hiển thị đầy đủ thanh menu ngang  với tất cả các chuyên mục chính trải dài trên cùng
+    Có thêm các thanh công cụ phụ như ngày tháng, thời tiết, tìm kiếm hiển thị rõ ràng
+    Lưới content:
+    Sử dụng cấu trúc 3 cột 
+    Tin nổi bật thường chiếm không gian lớn , các tin nhỏ xếp thành lưới, và cột thứ 3 bên phải là Sidebar.
+    Elements bị ẩn: Không có. Hiển thị toàn bộ các widget chức năng: "Xem nhiều", Video nổi bật, Quảng cáo banner hai bên hông
+    Font size:Chuẩn cho việc đọc trên máy tính
