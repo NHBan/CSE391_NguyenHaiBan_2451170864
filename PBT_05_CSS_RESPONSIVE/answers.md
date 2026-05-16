@@ -232,3 +232,155 @@ Câu C1:trang Vnexpress
     Tin nổi bật thường chiếm không gian lớn , các tin nhỏ xếp thành lưới, và cột thứ 3 bên phải là Sidebar.
     Elements bị ẩn: Không có. Hiển thị toàn bộ các widget chức năng: "Xem nhiều", Video nổi bật, Quảng cáo banner hai bên hông
     Font size:Chuẩn cho việc đọc trên máy tính
+Câu C2 :
+Mobile 
++---------------------------+
+| [Logo]            [Phone] | -> Header
++---------------------------+
+|                           |
+|        HERO IMAGE         |
+|                           |
++---------------------------+
+|          [Ảnh 1]          | -> Grid món ăn (1 cột)
+|---------------------------|
+|          [Ảnh 2]          |
+|---------------------------|
+|          [Ảnh 3]          |
+|---------------------------|
+|          [Ảnh 4]          |
+|---------------------------|
+|          [Ảnh 5]          |
+|---------------------------|
+|          [Ảnh 6]          |
++---------------------------+
+|       FORM ĐẶT BÀN        | -> Form (1 cột)
+| [ Ngày ]                  |
+| [ Giờ ]                   |
+| [ Số người ]              |
+| [ Ghi chú ]               |
+| [ Nút Đặt Bàn ]           |
++---------------------------+
+|       GOOGLE MAPS         | -> Bản đồ (1 cột)
++---------------------------+
+|          FOOTER           |
++---------------------------+
+Tablet:
++---------------------------------------+
+| [Logo]                        [Phone] |
++---------------------------------------+
+|                                       |
+|               HERO IMAGE              |
+|                                       |
++---------------------------------------+
+|       [Ảnh 1]      |      [Ảnh 2]     | -> Grid món ăn (2 cột)
+|       [Ảnh 3]      |      [Ảnh 4]     |
+|       [Ảnh 5]      |      [Ảnh 6]     |
++--------------------+------------------+
+|    FORM ĐẶT BÀN    |                  | -> Form 50%
+| [Ngày]    [Giờ]    |   GOOGLE MAPS    | -> Map 50%
+| [Số người]         |                  |
+| [Ghi chú]          |                  |
+| [Nút Đặt]          |                  |
++--------------------+------------------+
+|                FOOTER                 |
++---------------------------------------+
+Destop:
++-----------------------------------------------------------+
+| [Logo]                                            [Phone] |
++-----------------------------------------------------------+
+|                                                           |
+|                       HERO IMAGE                          |
+|                                                           |
++-----------------------------------------------------------+
+|      [Ảnh 1]      |      [Ảnh 2]      |      [Ảnh 3]      | -> Grid món ăn (3 cột)
+|-------------------|-------------------|-------------------|
+|      [Ảnh 4]      |      [Ảnh 5]      |      [Ảnh 6]      |
++---------------------------------------+-------------------+
+|             FORM ĐẶT BÀN              |    GOOGLE MAPS    | -> Bản đồ (Sidebar 1/3)
+|                                       |                   |
+|  [ Ngày ]           [ Giờ ]           |  + Địa chỉ        |
+|                                       |  + Giờ mở cửa     |
+|  [ Số người ]                         |  + Hotline        |
+|                                       |                   |
+|  [ Ghi chú dài..................]     |                   |
+|                                       |                   |
+|  [ NÚT ĐẶT BÀN ]                      |                   |
++---------------------------------------+-------------------+
+|                          FOOTER                           |
++-----------------------------------------------------------+
+
+Viết CSS skeleton (chỉ layout, không cần chi tiết) dùng Grid + Media Queries Mobile-First.
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+}
+.hero {
+  height: 60vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #eee; 
+}
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 10px;
+  padding: 16px;
+}
+.booking-section {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+  padding: 16px;
+}
+.booking-form {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+.footer {
+  text-align: center;
+  padding: 24px;
+}
+
+@media (min-width: 768px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+    padding: 32px;
+  }
+  .booking-section {
+    grid-template-columns: 1fr 1fr;
+    padding: 32px;
+    align-items: start;
+  }
+  .booking-form {
+    grid-template-columns: 1fr 1fr;
+  }
+  .booking-form .note-input,
+  .booking-form .submit-btn {
+    grid-column: 1 / -1; 
+  }
+}
+@media (min-width: 1024px) {
+  .gallery-grid, 
+  .booking-section {
+    max-width: 1200px;
+    margin: 0 auto; 
+    padding: 64px 32px;
+  }
+  .gallery-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .booking-section {
+    grid-template-columns: 2fr 1fr; 
+    gap: 64px;
+  }
+}
