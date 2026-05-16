@@ -50,3 +50,19 @@ Câu C1 (10đ) — Tùy biến Bootstrap1.
 2. Tại sao nên dùng SASS variables thay vì override trực tiếp?
     Tính đồng bộ và triệt để: Khi đổi biến $primary, SASS sẽ tự động tính toán và cập nhật màu cho tất cả các thành phần liên quan trong Bootstrap .Dễ bảo trì và tối ưu:
      Override trực tiếp bằng CSS thủ công (.btn-primary { background: red; }) sẽ khiến bạn phải viết đi viết lại rất nhiều code lẻ tẻ để phủ hết các trạng thái (hover, viền, shadow), làm file CSS phình to, dễ gặp lỗi sót UI và rất khó bảo trì sau này
+Câu C2 (10đ)  
+1. Bảng so sánh giữa CSS Thuần và Bootstrap 
+    Tiêu chí                     CSS Thuần                                                       ,Bootstrap
+Số dòng CSS cần viết             "Rất nhiều (phải tự viết Flexbox, Grid, Media Queries)"       Gần như không có (chỉ dùng class có sẵn)
+Thời gian phát triển,            "Lâu (code từ đầu, tự test responsive)."                         "Rất nhanh "
+Khả năng tùy biến               Tuyệt đối                                                 Trung bình - Khá (dễ bị rập khuôn giao diện mặc định)
+
+2. Khi nào NÊN và KHÔNG NÊN dùng Bootstrap?
+NÊN dùng:
+Làm các dự án cần tốc độ phát triển nhanh 
+Phát triển các trang hệ thống nội bộ (nơi tính năng quan trọng hơn giao diện độc bản)
+Làm việc trong team có nhiều người, cần một chuẩn CSS framework chung để dễ đọc code của nhau
+
+KHÔNG NÊN dùng:
+Dự án có thiết kế UI/UX mang tính đặc thù cao, độc đáo và phá cách 
+Các website yêu cầu tối ưu hiệu năng và tốc độ tải trang khắt khe (vì Bootstrap chứa rất nhiều class dư thừa không sử dụng đến nếu không cấu hình PurgeCSS cẩn thận)
