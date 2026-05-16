@@ -1,0 +1,51 @@
+
+.card {
+    background-color: $secondary-color;
+    padding: $spacing-md;
+    border-radius: $spacing-sm;
+    @include card-shadow;
+    .card-image {
+        width: 100%;
+        border-radius: $spacing-sm $spacing-sm 0 0;
+    }
+    .card-title {
+        font-family: $font-primary;
+        color: $primary-color;
+        margin-top: $spacing-sm;
+    }
+    &:hover {
+        box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+    &.featured {
+        border: 2px solid $primary-color;
+        padding: $spacing-lg;
+    }
+}
+.navbar {
+    @include flex-center;
+    padding: $spacing-md;
+    background-color: $primary-color;
+
+    .nav-item {
+        color: $secondary-color;
+        margin: 0 $spacing-sm;
+        text-decoration: none;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
+.container {
+    padding: $spacing-md;
+    @include respond-to($breakpoint-tablet) {
+        padding: $spacing-lg; 
+    }
+    .main-content {
+        font-family: $font-primary;
+        &>p {
+            margin-bottom: $spacing-md;
+            line-height: 1.5;
+        }
+    }
+}

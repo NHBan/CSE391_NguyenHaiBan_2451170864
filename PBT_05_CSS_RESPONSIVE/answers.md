@@ -136,3 +136,68 @@ Cần bước gì để chuyển SCSS → CSS?
     Compiler xử lý: Bạn dùng một công cụ biên dịch. Công cụ này sẽ đọc file SCSS của bạn, tính toán các biến, mở khóa phần lồng nhau, chạy các mixin, và dịch tất cả về lại ngôn ngữ CSS nguyên thủy.
     Tạo ra file mới: Nó tự động sinh ra một file .css thuần túy, có thể dài và lặp lại nhiều hơn, nhưng chuẩn xác.
     Gắn vào web: Bạn lấy file .css vừa được sinh ra đó gắn vào HTML
+Câu B3:
+    file style sau khi biên dịch là:
+    * {
+    box-sizing: border-box;
+    }
+    body {
+    margin: 0;
+    padding: 0;
+    }
+    .card {
+    background-color: #f8f9fa;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    }
+    .card .card-image {
+    width: 100%;
+    border-radius: 8px 8px 0 0;
+    }
+    .card .card-title {
+    font-family: "Arial", sans-serif;
+    color: #0056b3;
+    margin-top: 8px;
+    }
+    .card:hover {
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+    }
+    .card.featured {
+    border: 2px solid #0056b3;
+    padding: 32px;
+    }
+    .navbar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 16px;
+    background-color: #0056b3;
+    }
+    .navbar .nav-item {
+    color: #f8f9fa;
+    margin: 0 8px;
+    text-decoration: none;
+    }
+    .navbar .nav-item:hover {
+    text-decoration: underline;
+    }
+    .container {
+    padding: 16px;
+    }
+    @media (min-width: 768px) {
+    .container {
+        padding: 32px;
+    }
+    }
+    .container .main-content {
+    font-family: "Arial", sans-serif;
+    }
+    .container .main-content > p {
+    margin-bottom: 16px;
+    line-height: 1.5;
+    }
+    Lệnh compile file scss là:
+    ```bash
+    sass scss/style.scss css/style.css --watch
