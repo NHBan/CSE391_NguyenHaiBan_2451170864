@@ -52,7 +52,7 @@ Câu C1 (10đ) — Tùy biến Bootstrap1.
      Override trực tiếp bằng CSS thủ công (.btn-primary { background: red; }) sẽ khiến bạn phải viết đi viết lại rất nhiều code lẻ tẻ để phủ hết các trạng thái (hover, viền, shadow), làm file CSS phình to, dễ gặp lỗi sót UI và rất khó bảo trì sau này
 Câu C2 (10đ)  
 1. Bảng so sánh giữa CSS Thuần và Bootstrap 
-    Tiêu chí                     CSS Thuần                                                       ,Bootstrap
+    Tiêu chí                     CSS Thuần                                                       Bootstrap
 Số dòng CSS cần viết             "Rất nhiều (phải tự viết Flexbox, Grid, Media Queries)"       Gần như không có (chỉ dùng class có sẵn)
 Thời gian phát triển,            "Lâu (code từ đầu, tự test responsive)."                         "Rất nhanh "
 Khả năng tùy biến               Tuyệt đối                                                 Trung bình - Khá (dễ bị rập khuôn giao diện mặc định)
@@ -66,3 +66,35 @@ Làm việc trong team có nhiều người, cần một chuẩn CSS framework c
 KHÔNG NÊN dùng:
 Dự án có thiết kế UI/UX mang tính đặc thù cao, độc đáo và phá cách 
 Các website yêu cầu tối ưu hiệu năng và tốc độ tải trang khắt khe (vì Bootstrap chứa rất nhiều class dư thừa không sử dụng đến nếu không cấu hình PurgeCSS cẩn thận)
+
+Phần A Tailwind Css
+Bài B1 (30đ) — Landing Page TailwindCSS
+flex → display: flex
+items-center → align-items: center
+justify-between → justify-content: space-between
+p-4 → padding: 1rem (16px)
+bg-white → background-color: rgb(255 255 255)
+shadow-md → Đổ bóng đổ mức độ trung bình 
+rounded-lg → border-radius: 0.5rem 
+hover:shadow-xl → Đổ bóng mức độ lớn khi di chuột vào 
+transition-shadow → transition-property: box-shadow
+duration-300 → transition-duration: 300ms
+w-16 → width: 4rem (64px)
+h-16 → height: 4rem (64px)
+rounded-full → border-radius: 100%
+object-cover → object-fit: cover
+ml-4 → margin-left: 1rem 
+flex-1 → flex: 1 1 0% (Chiếm toàn bộ không gian trống còn lại)
+text-lg → font-size: 1.125rem (18px), line-height: 1.75rem 
+text-gray-800 → color: rgb(31 41 55) 
+truncate → overflow: hidden; text-overflow: ellipsis; white-space: nowrap
+text-sm → font-size: 0.875rem (14px), line-height: 1.25rem 
+text-gray-500 → color: rgb(107 114 128)
+px-4 → padding-left: 1rem; padding-right: 1rem 
+py-2 → padding-top: 0.5rem; padding-bottom: 0.5rem 
+bg-blue-500 → background-color: rgb
+text-white → color: rgb(255 255 255)
+rounded-md → border-radius: 0.375rem
+hover:bg-blue-600 → Chuyển nền thành màu xanh lam đậm hơn khi di chuột vào 
+focus:ring-2 → Thêm viền sáng dày 2px khi người dùng nhấp hoặc dùng tab chọn 
+focus:ring-blue-300 → Chuyển màu viền ring thành xanh lam nhạt khi focus
