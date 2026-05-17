@@ -121,3 +121,21 @@ VD: md:grid-cols-2 lg:grid-cols-4 nghĩa là gì?
     group-hover: : Đây là một modifier đặc biệt. Nó được đặt ở phần tử con, và sẽ được kích hoạt khi người dùng di chuột vào phần tử cha (với điều kiện phần tử cha phải được gắn class group)
 3. Viết class Tailwind cho: "Ẩn trên mobile, hiện dạng flex trên tablet trở lên" (tương đương d-none d-md-flex của Bootstrap)
     hidden md:flex
+Phan c Tailwind
+Câu C1 (10đ) — Tailwind vs CSS thuần
+Lấy 1 component bạn đã viết CSS thuần ở PBT trước. So sánh:
+HTML file size (CSS thuần vs Tailwind HTML) 
+    CSS thuần có kích thước file lớn hơn Tailwind Css
+Maintainability (dễ đọc? dễ sửa?) 
+    Css Thuần dễ đọc
+    Tailwind dễ sửa hơn
+Reusability (dùng lại thế nào? @apply?)
+    CSS thuần: Tính tái sử dụng cực cao, chỉ cần copy tên class dán vào bất cứ thẻ nào bạn muốn
+
+    Tailwind: Code dài nên copy-paste HTML sẽ dễ sai sót. Tái sử dụng qua 2 cách:
+    Cách 1 : Đóng gói cụm HTML đó thành Component (nếu dùng React, Vue, Angular, hoặc file template riêng) để gọi lại.
+    Cách 2 (Dùng @apply): Gộp các class của Tailwind thành một class CSS truyền thống trong file style.css để dùng lại nhiều lần.
+    CSS
+    .btn-primary {
+        @apply px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:ring-2;
+    }
