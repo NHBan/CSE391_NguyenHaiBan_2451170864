@@ -99,3 +99,25 @@ rounded-md → border-radius: 0.375rem
 hover:bg-blue-600 → Chuyển nền thành màu xanh lam đậm hơn khi di chuột vào 
 focus:ring-2 → Thêm viền sáng dày 2px khi người dùng nhấp hoặc dùng tab chọn 
 focus:ring-blue-300 → Chuyển màu viền ring thành xanh lam nhạt khi focus
+Câu A2 (10đ) — Responsive & States:
+1. Giải thích prefix responsive: md:, lg:, xl:. VD: md:grid-cols-2 lg:grid-cols-4 nghĩa là gì?
+    md: (Medium): Áp dụng từ kích thước màn hình Tablet trở lên 
+    lg: (Large): Áp dụng từ kích thước màn hình Desktop trở lên 
+    xl: (Extra Large): Áp dụng từ kích thước màn hình Desktop lớn trở lên
+VD: md:grid-cols-2 lg:grid-cols-4 nghĩa là gì?
+    Ở màn hình nhỏ : Giao diện sẽ hiển thị mặc định 
+    Khi màn hình đạt mức Tablet (md): Cấu trúc Grid sẽ chuyển thành 2 cột (grid-cols-2)
+    Khi màn hình đạt mức Desktop (lg): Cấu trúc Grid sẽ chuyển thành 4 cột (grid-cols-4)
+2. Giải thích state modifiers: hover:, focus:, active:, group-hover:
+    hover: : Áp dụng style khi người dùng di chuột vào phần tử 
+    VD: hover:bg-blue-500 (đổi nền sang xanh khi di chuột vào)
+
+    focus: : Áp dụng style khi phần tử được tập trung/chọn (thường xảy ra khi click vào một thẻ <input> để gõ chữ, hoặc dùng phím Tab để điều hướng)
+    VD: focus:border-blue-500 (đổi viền sang xanh khi click vào ô input)
+
+    active: : Áp dụng style ngay tại khoảnh khắc người dùng đang nhấn và giữ chuột trái lên phần tử 
+    VD: active:scale-95 (nút bị lún xuống/thu nhỏ lại một chút khi nhấn)
+
+    group-hover: : Đây là một modifier đặc biệt. Nó được đặt ở phần tử con, và sẽ được kích hoạt khi người dùng di chuột vào phần tử cha (với điều kiện phần tử cha phải được gắn class group)
+3. Viết class Tailwind cho: "Ẩn trên mobile, hiện dạng flex trên tablet trở lên" (tương đương d-none d-md-flex của Bootstrap)
+    hidden md:flex
