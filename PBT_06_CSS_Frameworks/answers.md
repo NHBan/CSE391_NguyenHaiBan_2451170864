@@ -50,7 +50,7 @@ Câu C1 (10đ) — Tùy biến Bootstrap1.
 2. Tại sao nên dùng SASS variables thay vì override trực tiếp?
     Tính đồng bộ và triệt để: Khi đổi biến $primary, SASS sẽ tự động tính toán và cập nhật màu cho tất cả các thành phần liên quan trong Bootstrap .Dễ bảo trì và tối ưu:
      Override trực tiếp bằng CSS thủ công (.btn-primary { background: red; }) sẽ khiến bạn phải viết đi viết lại rất nhiều code lẻ tẻ để phủ hết các trạng thái (hover, viền, shadow), làm file CSS phình to, dễ gặp lỗi sót UI và rất khó bảo trì sau này
-<<<<<<< HEAD
+
 Câu C2 (10đ)  
 1. Bảng so sánh giữa CSS Thuần và Bootstrap 
     Tiêu chí                     CSS Thuần                                                       Bootstrap
@@ -99,5 +99,3 @@ rounded-md → border-radius: 0.375rem
 hover:bg-blue-600 → Chuyển nền thành màu xanh lam đậm hơn khi di chuột vào 
 focus:ring-2 → Thêm viền sáng dày 2px khi người dùng nhấp hoặc dùng tab chọn 
 focus:ring-blue-300 → Chuyển màu viền ring thành xanh lam nhạt khi focus
-
-
