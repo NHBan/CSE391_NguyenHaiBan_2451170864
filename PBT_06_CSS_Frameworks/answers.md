@@ -139,3 +139,16 @@ Reusability (dùng lại thế nào? @apply?)
     .btn-primary {
         @apply px-4 py-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 focus:ring-2;
     }
+Câu C2 (10đ) — Performance
+File HTML dùng Tailwind thường rất dài (nhiều classes). Tại sao Tailwind CSS file cuối cùng lại NHỎ HƠN Bootstrap CSS?
+Bootstrap: Mặc định đóng gói và tải toàn bộ thư viện CSS của nó 
+Tailwind CSS: Hoạt động theo cơ chế chỉ sinh ra code CSS cho đúng những class nào bạn đã gõ trong file HTML. Không có bất kỳ dòng CSS thừa nào tồn tại trong file build cuối cùng
+Giải thích Tailwind PurgeCSS (Tailwind JIT). Nó loại bỏ gì?
+Tailwind JIT (Just-In-Time): Là trình biên dịch tự động quét qua toàn bộ mã nguồn (các file HTML, JS, JSX...) của bạn ngay trong lúc bạn đang code để phát hiện các class được sử dụng
+
+Nó loại bỏ gì? Nó loại bỏ (purge) hoàn toàn 100% các class CSS không được sử dụng ra khỏi file CSS . Chỉ những class được tìm thấy trong source code mới được giữ lại.
+Khi nào KHÔNG nên dùng TailwindCSS? Cho 2 tình huống cụ thể.
+
+Tinhf huống 1: Cần làm nhanh bằng các UI Component có sẵn. Nếu dự án cần dựng gấp các chức năng phức tạp như Carousel, Modal, Accordion, Dropdown... mà không có sẵn Design System, việc tự ghép các class Tailwind sẽ rất mất thời gian. Lúc này dùng Bootstrap sẽ nhanh hơn vì mọi thứ đã được dựng sẵn
+
+Tình huống 2: Dự án yêu cầu Semantic HTML (Cấu trúc HTML sạch). Nếu team của bạn có quy chuẩn khắt khe về việc tách biệt hoàn toàn cấu trúc (HTML) và giao diện (CSS) để file HTML ngắn gọn, dễ đọc như một tài liệu văn bản thuần túy, thì không nên dùng Tailwind (vì nó sẽ làm thẻ HTML phình to rất nhiều)
