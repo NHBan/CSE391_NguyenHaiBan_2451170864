@@ -384,3 +384,5 @@ Viết CSS skeleton (chỉ layout, không cần chi tiết) dùng Grid + Media Q
     gap: 64px;
   }
 }
+
+LinkVideo:https://drive.google.com/file/d/1JmZau78EethCII5dx36OqBckj7Eavnl2/view?usp=sharing
