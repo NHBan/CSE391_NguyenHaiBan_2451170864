@@ -32,3 +32,20 @@ Câu A3 (5đ) — So sánh == vs ===
     console.log("" == false);            // true
     Quy tắc: Từ giờ trở đi, bạn nên dùng == hay ===? Tại sao?
     Nên dung === vì nó đúng với mục đích so sánh về cả giá trị và kiểu dữ liệu
+Câu A4 (5đ) — Truthy & Falsy
+    Liệt kê TẤT CẢ giá trị Falsy trong JavaScript (đọc tài liệu). Sau đó dự đoán kết quả:
+        false
+        0           // zero
+        0n          // BigInt zero
+        ""          // empty string
+        null
+        undefined
+        NaN
+    if ("0") console.log("A");           // In
+    if ("") console.log("B");            // In 
+    if ([]) console.log("C");            // In 
+    if ({}) console.log("D");            // In
+    if (null) console.log("E");          // Không in
+    if (0) console.log("F");             // Không in
+    if (-1) console.log("G");            // In 
+    if (" ") console.log("H");           // In
