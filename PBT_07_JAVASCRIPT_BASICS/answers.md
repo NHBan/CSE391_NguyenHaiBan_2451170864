@@ -19,3 +19,16 @@ Câu A2 (5đ) — Data Types & Coercion
     Sau khi trả lời, chạy code kiểm tra. Giải thích tại sao "5" + 3 và "5" - 3 cho kết quả khác nhau
     "5"+3="53" do ưu tiên cộng 2 ký tự vì chắc chắn đúng
     "5"-3=2 do không có phép trừ ký tự nên sẽ chuyển về dạng số
+Câu A3 (5đ) — So sánh == vs ===
+    Dự đoán true hay false:
+
+    console.log(5 == "5");                // true
+    console.log(5 === "5");               // false
+    console.log(null == undefined);       // true
+    console.log(null === undefined);      // false
+    console.log(NaN == NaN);             // false
+    console.log(0 == false);             // true
+    console.log(0 === false);            // false
+    console.log("" == false);            // true
+    Quy tắc: Từ giờ trở đi, bạn nên dùng == hay ===? Tại sao?
+    Nên dung === vì nó đúng với mục đích so sánh về cả giá trị và kiểu dữ liệu
