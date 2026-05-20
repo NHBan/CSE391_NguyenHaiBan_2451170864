@@ -63,3 +63,181 @@ var html = `
     <p>${description}</p>
     <span>Giá: ${price}đ</span>
 </div>`;
+
+Câu C1:
+
+Tìm và sửa TẤT CẢ lỗi trong code sau (có ít nhất 6 lỗi):
+function tinhGiaGiamGia(giaBan, phanTramGiam) {
+    if (phanTramGiam < 0 || phanTramGiam > 100) {
+        return "Phần trăm giảm không hợp lệ"
+    }
+    
+    var giamGia = giaBan * phanTramGiam / 100
+    let giaSauGiam = giaBan - giamGia
+    
+    if (giaSauGiam = 0) {
+        console.log("Sản phẩm miễn phí!")
+    }
+    
+    return giaSauGiam
+}
+
+// Test
+const gia = tinhGiaGiamGia("100000", 20)
+console.log("Giá sau giảm: " + gia + "đ")
+
+const gia2 = tinhGiaGiamGia(50000, 110)
+console.log("Giá: " + gia2)
+
+for (var i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log("Item " + i)
+    }, 1000)
+}
+
+Tìm lỗi và sửa
+Code sai:
+
+1. if (giaSauGiam = 0)
+= là phép gán, không phải so sánh
+giaSauGiam = 0
+biến bị gán thành 0
+
+Sửa:
+if (giaSauGiam === 0)
+
+2. giaBan truyền vào là string
+Code:
+const gia = tinhGiaGiamGia("100000", 20)
+"100000" là chuỗi.
+
+JS có thể tự ép kiểu khi nhân/chia, nhưng không nên phụ thuộc ép kiểu ngầm 
+
+Sửa
+Truyền number:
+const gia = tinhGiaGiamGia(100000, 20)
+
+3. Thiếu validate kiểu dữ liệu
+Hàm chưa kiểm tra:
+giaBan có phải số không
+phanTramGiam có phải số không
+Ví dụ:
+
+tinhGiaGiamGia("abc", 20)
+sẽ ra NaN
+
+Sửa:
+if (isNaN(giaBan) || isNaN(phanTramGiam)) {
+    return "Input không hợp lệ";
+}
+4. Không kiểm tra giá bán âm
+Ví dụ:
+tinhGiaGiamGia(-1000, 20)
+không hợp lý
+
+Sửa:
+if (giaBan < 0) {
+    return "Giá bán không hợp lệ";
+}
+5. Dùng var thay vì let
+
+Code:
+var giamGia = giaBan * phanTramGiam / 100
+var có phạm vi function scope, dễ gây bug
+Nên dùng let hoặc const
+
+Sửa:
+const giamGia = giaBan * phanTramGiam / 100;
+6. Lỗi “ẩn” với var trong vòng lặp + setTimeout
+Code:
+
+for (var i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log("Item " + i)
+    }, 1000)
+}
+
+Nhiều người nghĩ sẽ in:
+Item 0
+Item 1
+Item 2
+Item 3
+Item 4
+
+Nhưng thực tế:
+
+Item 5
+Item 5
+Item 5
+Item 5
+Item 5
+
+
+Vì var không có block scope.
+
+Sau khi vòng lặp kết thúc:
+
+i = 5
+
+setTimeout() chạy sau 1 giây nên tất cả callback đều dùng cùng biến i.
+
+Cách sửa bằng let
+for (let i = 0; i < 5; i++) {
+    setTimeout(function() {
+        console.log("Item " + i)
+    }, 1000)
+}
+
+let tạo biến mới cho mỗi vòng lặp.
+
+Kết quả đúng:
+
+Item 0
+Item 1
+Item 2
+Item 3
+Item 4
+
+Code sau khi sửa hoàn chỉnh
+function tinhGiaGiamGia(giaBan, phanTramGiam) {
+
+    giaBan = Number(giaBan);
+    phanTramGiam = Number(phanTramGiam);
+
+    // Validate dữ liệu
+    if (isNaN(giaBan) || isNaN(phanTramGiam)) {
+        return "Input không hợp lệ";
+    }
+
+    if (giaBan < 0) {
+        return "Giá bán không hợp lệ";
+    }
+
+    if (phanTramGiam < 0 || phanTramGiam > 100) {
+        return "Phần trăm giảm không hợp lệ";
+    }
+
+    const giamGia = giaBan * phanTramGiam / 100;
+
+    let giaSauGiam = giaBan - giamGia;
+
+    if (giaSauGiam === 0) {
+        console.log("Sản phẩm miễn phí!");
+    }
+
+    return giaSauGiam;
+}
+
+// Test
+const gia = tinhGiaGiamGia(100000, 20);
+console.log("Giá sau giảm: " + gia + "đ");
+
+const gia2 = tinhGiaGiamGia(50000, 110);
+console.log("Giá: " + gia2);
+
+// Sửa var -> let
+for (let i = 0; i < 5; i++) {
+    setTimeout(function () {
+        console.log("Item " + i);
+    }, 1000);
+}
