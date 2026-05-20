@@ -49,3 +49,17 @@ Câu A4 (5đ) — Truthy & Falsy
     if (0) console.log("F");             // Không in
     if (-1) console.log("G");            // In 
     if (" ") console.log("H");           // In
+Câu A5 — Template Literals
+// Cách 1:
+var greeting = `Xin chào ${name}! Bạn ${age} tuổi.`;
+
+// Cách 2:
+var url = `https://api.example.com/users/${userId}/orders?page=${page}`;
+
+// Cách 3:
+var html = `
+<div class="card">
+    <h2>${title}</h2>
+    <p>${description}</p>
+    <span>Giá: ${price}đ</span>
+</div>`;
