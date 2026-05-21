@@ -79,3 +79,30 @@ Vòng lặp for chạy đồng bộ và kết thúc ngay lập tức, lúc này 
 let có phạm vi block. Khi dùng let trong vòng lặp for, cứ mỗi lần lặp , JavaScript lại tạo ra một biến j hoàn toàn mới và gán cho nó giá trị của bước lặp đó
 Các hàm callback trong setTimeout tạo ra một Closure bao đóng lên biến j của riêng vòng lặp đó
 200ms sau, khi callback chạy, nó trích xuất đúng giá trị j đã được "lưu giữ" trong bộ nhớ riêng của từng vòng lặp (lần lượt là 0, 1, 2)
+### Câu A3  — Array Methods
+
+Đọc chương 06. Cho mảng: `const nums = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]`
+Viết **1 dòng code** cho mỗi yêu cầu (dùng arrow function):
+// 1. Lấy các số chẵn
+nums.filter(n => n % 2 === 0);
+
+// 2. Nhân mỗi số với 3
+nums.map(n => n * 3);
+
+// 3. Tính tổng tất cả
+nums.reduce((sum, n) => sum + n, 0);
+
+// 4. Tìm số đầu tiên > 7
+nums.find(n => n > 7);
+
+// 5. Kiểm tra CÓ số > 10 không
+nums.some(n => n > 10);
+
+// 6. Kiểm tra TẤT CẢ đều > 0
+nums.every(n => n > 0);
+
+// 7. Tạo mảng "Số X là [chẵn/lẻ]"
+nums.map(n => `Số ${n} là ${n % 2 === 0 ? 'chẵn' : 'lẻ'}`);
+
+// 8. Đảo ngược mảng (không mutate gốc)
+[...nums].reverse(); 
