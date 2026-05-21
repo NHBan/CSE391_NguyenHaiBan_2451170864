@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Keyboard Navigation App</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Tương tác chuyển hình ảnh</h1>
+            <p>Mẹo: Nhấn <kbd>Ctrl</kbd> + <kbd>K</kbd> để mở thanh lệnh nhanh ở bất kỳ đâu!</p>
+        </header>
+
+        <main>
+            <section class="gallery-container" aria-label="Bộ sưu tập hình ảnh chính">
+                <div class="viewer-box" id="mainViewer" tabindex="0" aria-label="Vùng hiển thị ảnh lớn. Dùng phím mũi tên Trái Phải hoặc phím số từ 1 đến 9 để đổi ảnh. Nhấn Space để chạy Slideshow.">
+                    <img id="activeImg" src="" alt="Hình ảnh lớn hiển thị">
+                    <div id="slideshowBadge" class="badge">Slideshow: Tắt</div>
+                    <div id="imgIndexBadge" class="badge-index">1 / 9</div>
+                </div>
+
+                <div class="thumbnails" id="thumbList" role="listbox" aria-label="Danh sách ảnh thu nhỏ">
+                    </div>
+            </section>
+        </main>
+    </div>
+
+    <div id="commandPalette" class="palette-overlay" role="dialog" aria-modal="true" aria-label="Thanh lệnh nhanh" aria-hidden="true">
+        <div class="palette-box">
+            <input type="text" id="paletteInput" placeholder="Gõ từ khóa để tìm lệnh... (ví dụ: play, dark, next)" aria-label="Ô tìm kiếm lệnh nhanh">
+            <ul id="commandList" role="listbox" aria-label="Danh sách kết quả lệnh tìm kiếm">
+                </ul>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
