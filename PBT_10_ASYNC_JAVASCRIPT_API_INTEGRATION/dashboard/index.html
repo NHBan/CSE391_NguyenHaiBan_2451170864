@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="dashboard-container">
+        <header class="dashboard-header">
+            <div class="header-left">
+                <h1>Bảng Điều Khiển Tổng Hợp </h1>
+                <p id="performanceMetric" class="metric-text">Chưa có dữ liệu. Hãy nhấn tải lại.</p>
+            </div>
+            <button id="refreshBtn" class="btn-refresh">🔄 Làm mới toàn bộ</button>
+        </header>
+
+        <main class="dashboard-grid">
+            <section class="widget-card" id="widget-0" aria-label="Thời tiết Hà Nội">
+                <h3>🌤️ Thời Tiết Hiện Tại</h3>
+                <div class="widget-content"></div>
+            </section>
+
+            <section class="widget-card" id="widget-1" aria-label="Thông tin Quốc gia">
+                <h3>🇻🇳 Thông Tin Quốc Gia</h3>
+                <div class="widget-content"></div>
+            </section>
+
+            <section class="widget-card" id="widget-2" aria-label="Hình ảnh thú cưng ngẫu nhiên">
+                <h3>🐶 Câu Lạc Bộ Thú Cưng</h3>
+                <div class="widget-content"></div>
+            </section>
+        </main>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
