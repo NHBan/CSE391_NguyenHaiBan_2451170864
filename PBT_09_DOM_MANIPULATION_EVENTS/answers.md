@@ -58,3 +58,21 @@ div#app
 
     - Chọn tất cả <a> bên trong <nav>
     document.querySelectorAll('nav a');
+### Câu A2 (5đ) — innerHTML vs textContent
+
+Giải thích sự khác nhau. Cho ví dụ khi nào dùng mỗi cái. 
+1. Sự khác nhau giữa innerHTML và textContent
+innerHTML: Lấy hoặc thiết lập toàn bộ nội dung của một phần tử dưới dạng mã HTML. Trình duyệt sẽ phân tích cú pháp  chuỗi này và chuyển nó thành các DOM nodes thực sự (render ra các thẻ, in đậm, hình ảnh...)
+
+textContent: Lấy hoặc thiết lập nội dung của phần tử dưới dạng văn bản thuần túy. Bất kỳ thẻ HTML nào nằm trong chuỗi cũng sẽ bị biến thành văn bản bình thường, trình duyệt không render chúng
+**Câu hỏi bảo mật:** Tại sao `innerHTML` có thể gây lỗ hổng **XSS**? Viết 1 ví dụ code minh họa:
+Lỗ hổng XSS (Cross-Site Scripting) xảy ra khi bạn lấy dữ liệu không an toàn (do user nhập) và đưa trực tiếp vào trang web thông qua innerHTML
+
+Vì innerHTML ép trình duyệt phải biên dịch chuỗi thành mã HTML thực, nếu user cố tình nhập các thẻ chứa mã độc như <script> hoặc gắn sự kiện ẩn như <img onerror="mã_độc">, trình duyệt sẽ tự động thực thi đoạn mã JavaScript đó ngay khi nó được chèn vào DOM. Hậu quả là tin tặc có thể đánh cắp cookie, token, hoặc chiếm quyền điều khiển phiên đăng nhập của người dùng khác
+```javascript
+// Giả sử user nhập vào input: <img src=x onerror="alert('Hacked!')">
+const userInput = document.querySelector("#search").value;
+document.querySelector("#result").innerHTML = userInput;  // ← Nguy hiểm!
+// Sửa thế nào?
+// SỬA LẠI THÀNH textContent:
+document.querySelector("#result").textContent = userInput;  // ← Tuyệt đối an toàn!
