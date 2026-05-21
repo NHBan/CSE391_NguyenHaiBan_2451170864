@@ -106,3 +106,19 @@ nums.map(n => `Số ${n} là ${n % 2 === 0 ? 'chẵn' : 'lẻ'}`);
 
 // 8. Đảo ngược mảng (không mutate gốc)
 [...nums].reverse(); 
+### Câu A4 (5đ) — Object Destructuring & Spread
+
+Không chạy code, dự đoán output:
+
+// Destructuring
+console.log(name, price, ram, color);  // Output: iPhone 16 25990000 8 Titan
+console.log(specs);                    // Lỗi: ReferenceError: specs is not defined
+// (Vì cú pháp specs: { ram, color } chỉ trích xuất ram và color, không tạo ra biến specs)
+
+// Spread
+console.log(updated.price);            // Output: 23990000
+console.log(updated.sale);             // Output: true
+console.log(product.price);            // Output: 25990000 (Gốc không bị đổi)
+
+// Spread gotcha
+console.log(product.specs.ram);        // Output: 16
