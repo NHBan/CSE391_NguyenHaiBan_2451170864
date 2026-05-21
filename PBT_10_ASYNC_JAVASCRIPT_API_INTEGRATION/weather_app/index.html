@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ứng Dụng Thời Tiết</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="weather-app">
+        <h2>Dự Báo Thời Tiết</h2>
+        
+        <form id="searchForm">
+            <input type="text" id="cityInput" placeholder="Nhập tên thành phố (vd: Hanoi, Tokyo...)" autocomplete="off">
+            <button type="submit">Tìm</button>
+        </form>
+
+        <div class="history-container">
+            <span class="history-label">Lịch sử:</span>
+            <div id="historyTags"></div>
+        </div>
+
+        <div id="statusContainer">
+            <div id="stateLoading" class="state-box hidden">
+                <div class="spinner"></div>
+                <p>Đang tải dữ liệu thời tiết...</p>
+            </div>
+
+            <div id="stateError" class="state-box hidden">
+                <span class="error-icon">⚠️</span>
+                <p id="errorText">Đã xảy ra lỗi!</p>
+            </div>
+
+            <div id="stateSuccess" class="state-box hidden">
+                <h3 id="wCity">Hà Nội</h3>
+                <div class="w-main">
+                    <span id="wIcon" class="w-icon">☀️</span>
+                    <span id="wTemp" class="w-temp">--°C</span>
+                </div>
+                <p id="wDesc" class="w-desc">Nắng ráo</p>
+                <div class="w-details">
+                    <div>💧 Độ ẩm: <span id="wHumidity">--%</span></div>
+                    <div>💨 Tốc độ gió: <span id="wWind">-- km/h</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="./app.js"></script>
+</body>
+</html>

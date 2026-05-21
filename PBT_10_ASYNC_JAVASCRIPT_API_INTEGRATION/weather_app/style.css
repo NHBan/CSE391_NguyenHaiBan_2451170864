@@ -1,0 +1,188 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', sans-serif;
+}
+
+body {
+    background: linear-gradient(135deg, #74b9ff, #0984e3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.weather-app {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 30px;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 400px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    color: #2d3436;
+}
+
+/* Form */
+#searchForm {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 15px;
+}
+
+#cityInput {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #dfe6e9;
+    border-radius: 8px;
+    font-size: 15px;
+    outline: none;
+}
+
+#cityInput:focus {
+    border-color: #0984e3;
+}
+
+#searchForm button {
+    padding: 12px 20px;
+    background: #0984e3;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+#searchForm button:hover {
+    background: #076bba;
+}
+
+/* History Tags */
+.history-container {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+    font-size: 13px;
+}
+
+.history-label {
+    font-weight: bold;
+    color: #636e72;
+}
+
+.hist-tag {
+    background: #dfe6e9;
+    padding: 4px 10px;
+    border-radius: 15px;
+    cursor: pointer;
+    color: #2d3436;
+    transition: all 0.2s;
+}
+
+.hist-tag:hover {
+    background: #b2bec3;
+}
+
+/* State Management */
+.state-box {
+    text-align: center;
+    padding: 20px 0;
+    animation: fadeIn 0.3s ease;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f3f3f3;
+    border-top: 4px solid #0984e3;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Error State */
+.error-icon {
+    font-size: 40px;
+    display: block;
+    margin-bottom: 10px;
+}
+
+#stateError p {
+    color: #d63031;
+    font-weight: 500;
+}
+
+#wCity {
+    font-size: 24px;
+    color: #2d3436;
+    margin-bottom: 10px;
+}
+
+.w-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin: 15px 0;
+}
+
+.w-icon {
+    font-size: 50px;
+}
+
+.w-temp {
+    font-size: 45px;
+    font-weight: bold;
+    color: #2d3436;
+}
+
+.w-desc {
+    font-size: 18px;
+    color: #636e72;
+    text-transform: capitalize;
+    margin-bottom: 20px;
+}
+
+.w-details {
+    display: flex;
+    justify-content: space-around;
+    border-top: 1px solid #dfe6e9;
+    padding-top: 15px;
+    font-size: 14px;
+    color: #2d3436;
+}
