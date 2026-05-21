@@ -76,3 +76,34 @@ document.querySelector("#result").innerHTML = userInput;  // ← Nguy hiểm!
 // Sửa thế nào?
 // SỬA LẠI THÀNH textContent:
 document.querySelector("#result").textContent = userInput;  // ← Tuyệt đối an toàn!
+
+### Câu A3 (5đ) — Event Bubbling
+Không chạy code, dự đoán thứ tự console.log:
+```javascript
+document.querySelector("#outer").addEventListener("click", () => {
+    console.log("OUTER");
+});
+
+document.querySelector("#inner").addEventListener("click", () => {
+    console.log("INNER");
+});
+
+document.querySelector("#btn").addEventListener("click", (e) => {
+    console.log("BUTTON");
+    // e.stopPropagation();  ← nếu bỏ comment → output thay đổi thế nào?
+});
+```
+
+```html
+<div id="outer">
+    <div id="inner">
+        <button id="btn">Click me</button>
+    </div>
+</div>
+```
+
+Khi click vào button, output = 
+BUTTON
+INNER
+OUTER 
+Nếu uncomment `stopPropagation()`, output = BUTTON
