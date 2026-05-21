@@ -96,3 +96,87 @@ async function xuLyDonHang() {
 }
 
 xuLyDonHang();
+```
+### Câu C1  — Error Handling Strategy
+```javascript
+Bạn xây dựng app E-Commerce gọi nhiều APIs. Thiết kế **chiến lược xử lý lỗi**:
+
+1. **Network errors** (mất mạng giữa chừng) → Xử lý thế nào?
+2. **API errors** (server trả 500, 404, 429 Too Many Requests) → Xử lý từng loại
+1 &2 Mặc định, fetch() chỉ ném ra lỗi (bị rejected) khi gặp Network Errors (mất mạng, đứt cáp, sai DNS). Đối với các API Errors (404, 500, 429), fetch() vẫn tính là thành công nhưng thuộc tính response.ok sẽ là false. Chiến lược xử lý cụ thể cho từng loại như sau:
+
+Network Errors:
+
+Cách xử lý: Lắng nghe sự kiện window.addEventListener('online/offline') để thông báo giao diện toàn cục. Trên từng request, dùng khối catch để phát hiện và hiển thị UI thông báo: "Kết nối mạng bị gián đoạn. Vui lòng kiểm tra lại thiết bị." kèm nút "Thử lại"
+
+HTTP 404 (Not Found - Không tìm thấy sản phẩm/giỏ hàng):
+
+Cách xử lý: Lỗi này thường do dữ liệu (ví dụ: sản phẩm đã bị xóa khỏi hệ thống). Không nên crash ứng dụng, hãy chuyển hướng người dùng về trang danh mục hoặc hiển thị widget: "Sản phẩm này hiện không còn tồn tại"
+
+HTTP 500 (Internal Server Error - Server sập/lỗi database):
+
+Cách xử lý: Đây là lỗi từ phía hệ thống back-end. Hãy hiển thị một thông báo chung chung, thân thiện nhưng rõ ràng: "Hệ thống đang bận hoặc bảo trì. Vui lòng thử lại sau vài phút." Đừng bao giờ in trực tiếp lỗi kỹ thuật thô lên màn hình của khách hàng
+
+HTTP 429 (Too Many Requests - Spam/Bị giới hạn lượt gọi):
+Cách xử lý: Hệ thống đang chặn Client vì gửi quá nhiều request liên tiếp (Rate limit). Cách xử lý là tạm thời khóa (disable) nút bấm thao tác của user, đọc Header Retry-After từ server trả về (nếu có) để đếm ngược thời gian và tự động gửi lại sau khi hết thời gian phạt.
+3. **Timeout** (API chậm > 10 giây) → Viết code `fetchWithTimeout(url, ms)`
+Nếu một API thanh toán hoặc áp mã giảm giá chạy quá lâu, ta cần chủ động ngắt nó để giải phóng tài nguyên và báo lỗi cho khách hàng thay vì để họ đợi vô hạn. Ta sử dụng AbortController để làm việc này
+->async function fetchWithTimeout(url, options = {}, ms = 10000) {
+    // Khởi tạo bộ điều khiển ngắt tiến trình
+    const controller = new AbortController();
+    const id = setTimeout(() => controller.abort(), ms); // Kích hoạt ngắt sau `ms` giây
+
+    try {
+        const response = await fetch(url, {
+            ...options,
+            signal: controller.signal // Gắn tín hiệu ngắt vào fetch
+        });
+        clearTimeout(id); // Xóa bộ đếm nếu fetch thành công trước thời hạn
+        return response;
+    } catch (error) {
+        clearTimeout(id);
+        if (error.name === 'AbortError') {
+            throw new Error(`Yêu cầu bị hủy bỏ do quá thời gian phản hồi (${ms}ms)`);
+        }
+        throw error;
+    }
+}
+
+// Cách dùng:
+// fetchWithTimeout("https://api.example.com/checkout", {}, 10000).catch(console.error);
+4. **Retry logic** (thử lại 3 lần nếu lỗi network) → Viết code `fetchWithRetry(url, maxRetries)`
+Khi gặp lỗi mất mạng cục bộ hoặc chập chờn mạng, việc tự động gửi lại yêu cầu  từ 2-3 lần sẽ cứu vãn được trải nghiệm người dùng mà họ không cần phải bấm F5 bằng tay
+->async function fetchWithRetry(url, options = {}, maxRetries = 3, delay = 1000) {
+    for (let attempt = 1; attempt <= maxRetries; attempt++) {
+        try {
+            const response = await fetch(url, options);
+            
+            // Nếu là lỗi API (404, 500...), không tự động retry vì kết quả sẽ không đổi
+            if (!response.ok) {
+                throw new Error(`HTTP ${response.status}`);
+            }
+            
+            return await response.json(); // Thành công thì thoát hàm và trả dữ liệu
+        } catch (error) {
+            // Nếu đã chạm đến giới hạn lượt thử cuối cùng mà vẫn lỗi thì ném lỗi ra ngoài
+            if (attempt === maxRetries) {
+                throw new Error(`Đã thử lại ${maxRetries} lần nhưng vẫn thất bại. Lỗi gốc: ${error.message}`);
+            }
+            
+            console.warn(`Lần thử ${attempt} thất bại. Thử lại sau ${delay}ms...`);
+            
+            // Tạo khoảng dừng (Delay) trước khi bước vào vòng lặp thử lại kế tiếp
+            await new Promise(resolve => setTimeout(resolve, delay));
+            
+            // (Tùy chọn nâng cao) Tăng dần thời gian chờ sau mỗi lần lỗi: delay *= 2;
+        }
+    }
+}
+
+// Cách dùng:
+// fetchWithRetry("https://api.example.com/products", { method: "GET" }, 3, 1500)
+//     .then(data => console.log(data))
+//     .catch(err => alert(err.message));
+```
+
+
