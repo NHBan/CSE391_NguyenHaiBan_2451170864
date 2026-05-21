@@ -47,3 +47,52 @@ async function getData() {
     Network error : Mất mạng, đứt cáp, sai tên miền (DNS lỗi), hoặc bị chặn bởi chính sách CORS. Khi đó fetch tự ném ra lỗi
     Lỗi HTTP tự định nghĩa: Mã lỗi 404, 500... do chính câu lệnh throw new Error() ở dòng if (!response.ok) chủ động ném ra
     JSON parse error (Lỗi định dạng JSON): Nếu API phản hồi về một chuỗi không phải định dạng JSON (ví dụ: một trang HTML báo lỗi hoặc chuỗi text trống), hàm response.json() sẽ thất bại và ném ra lỗi cú pháp cấu trúc, khối catch sẽ bắt được luôn
+### Câu A3 (5đ) — Promise States
+Vẽ sơ đồ 3 trạng thái của Promise (`Pending → Fulfilled`, `Pending → Rejected`).
+┌─── [Resolved] ───► FULFILLED (Thành công) ───► .then()
+                     │                      (Trả về: value)
+                     │
+PENDING (Chờ xử lý) ─┤
+                     │
+                     │
+                     └─── [Rejected] ───► REJECTED (Thất bại) ──────► .catch()
+                                            (Trả về: error/reason)
+Giải thích: Callback Hell là gì? Viết ví dụ 4 cấp callback hell → Refactor thành async/await.
+Callback Hell (hay còn gọi là Pyramid of Doom) là hiện tượng các hàm bất đồng bộ lồng nhau quá nhiều tầng thông qua các hàm gọi lại 
+Khi một tác vụ bất đồng bộ sau phụ thuộc vào kết quả của tác vụ trước, code có xu hướng phình to và thụt lề dần sang bên phải theo hình kim tự tháp. Điều này làm cho mã nguồn cực kỳ rối mắt, khó đọc, khó bảo trì và việc bóc tách xử lý lỗi (try...catch) trở thành một cực hình
+Ví dụ 4 cấp Callback Hell (Ugly Code):
+```javascript
+// Giả định các hàm đều nhận callback (err, data) theo chuẩn cũ
+dangNhap("user123", (err, user) => {
+    if (err) return console.error(err);
+    
+    layGioHang(user.id, (err, cart) => {
+        if (err) return console.error(err);
+        
+        taoDonHang(cart, (err, order) => {
+            if (err) return console.error(err);
+            
+            thanhToan(order.id, (err, receipt) => {
+                if (err) return console.error(err);
+                console.log("Hoàn thành đơn hàng:", receipt);
+            });
+        });
+    });
+});
+3. Refactor thành Async/Await
+// Chuyển đổi quy trình sang dạng phẳng, dễ đọc như code đồng bộ
+async function xuLyDonHang() {
+    try {
+        const user = await dangNhap("user123");
+        const cart = await layGioHang(user.id);
+        const order = await taoDonHang(cart);
+        const receipt = await thanhToan(order.id);
+        
+        console.log("Hoàn thành đơn hàng:", receipt);
+    } catch (error) {
+        // Gom toàn bộ lỗi của cả 4 bước về xử lý tập trung tại một nơi
+        console.error("Quy trình thất bại:", error.message);
+    }
+}
+
+xuLyDonHang();
