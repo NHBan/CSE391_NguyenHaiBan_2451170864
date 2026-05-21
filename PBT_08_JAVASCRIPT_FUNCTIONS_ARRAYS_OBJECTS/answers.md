@@ -122,3 +122,13 @@ console.log(product.price);            // Output: 25990000 (Gốc không bị đ
 
 // Spread gotcha
 console.log(product.specs.ram);        // Output: 16
+
+### Câu C1 (10đ) — Refactor Code
+const processOrders = (orders) => orders
+    .filter(({ status, total }) => status === "completed" && total > 100000)
+    .map(({ id, customer, total }) => ({
+        id, customer, total,
+        discount: total * 0.1,
+        finalTotal: total * 0.9
+    }))
+    .sort((a, b) => b.finalTotal - a.finalTotal);
