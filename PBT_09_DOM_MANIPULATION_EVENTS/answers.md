@@ -193,3 +193,32 @@ window.addEventListener("load", () => {
         historyList.innerHTML = savedHistory;
     }
 });
+### Câu C2  — Performance
+
+1. Giải thích: Tại sao bind event lên 1000 elements riêng lẻ là **BAD PRACTICE**? Event Delegation giải quyết thế nào?
+Hiệu năng: Bind 1000 sự kiện riêng lẻ gây ngốn RAM và làm chậm trình duyệt. Event Delegation giải quyết bằng cách chỉ gắn 1 sự kiện duy nhất lên thẻ cha, tận dụng cơ chế sủi bọt  để bắt sự kiện từ các thẻ con truyền lên
+2. Cho code:
+```javascript
+for (let i = 0; i < 1000; i++) {
+    const div = document.createElement("div");
+    div.textContent = `Item ${i}`;
+    document.body.appendChild(div);   // ← 1000 lần reflow!
+}
+```
+Đoạn code sau khi refactor:
+```javascript
+const fragment = document.createDocumentFragment();
+
+for (let i = 0; i < 1000; i++) {
+    const div = document.createElement("div");
+    div.textContent = `Item ${i}`;
+    
+    // Chỉ append vào fragment (Không làm thay đổi DOM thật, không gây reflow)
+    fragment.appendChild(div);   
+}
+// Bơm toàn bộ 1000 phần tử từ fragment vào DOM thật cùng một lúc
+document.body.appendChild(fragment); // ← Chỉ gây đúng 1 lần Reflow!
+```
+Refactor dùng `DocumentFragment` để chỉ gây 1 lần reflow. Giải thích tại sao nhanh hơn
+DocumentFragment: Hoạt động như một DOM ảo nằm trong bộ nhớ đệm. Gom 1000 phần tử vào Fragment trong vòng lặp không làm thay đổi giao diện thật. Cuối cùng, bơm Fragment vào body giúp trình duyệt chỉ phải tính toán lại cấu trúc hình học đúng 1 lần duy nhất, tối ưu tốc độ render rõ rệt
+
