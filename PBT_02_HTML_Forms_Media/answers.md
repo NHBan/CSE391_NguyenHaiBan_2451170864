@@ -45,3 +45,20 @@ alt="Tông tin chi tiết của điện thoại"
 alt="" 
 Ảnh biểu đồ doanh thu Q1/2026
 alt="Thông tin chi tiết kết quả của biểu đồ"
+Cau A5  So sánh <figure> vs <img>
+<!-- Cách 1 -->
+<img src="product.jpg" alt="iPhone">
+<!--Hình ảnh riêng lẻ 
+alt: sử dụng để thay thế cho ảnh
+-->
+<!-- Cách 2 -->
+<figure>
+    <img src="product.jpg" alt="iPhone 16 Pro Max 256GB Titan">
+    <figcaption>iPhone 16 Pro Max — 25.990.000đ</figcaption>
+</figure>
+<!-- Hình ảnh đi kèm với ghi chú
+figcaption dùng để mô tả đặc điểm của ảnh
+-->
+Khi nào dùng Cách 1, khi nào dùng Cách 2? Cho 2 ví dụ thực tế cho mỗi cách
+    - Sử dụng thẻ img khi chỉ muốn hình ảnh đi riêngg lẻ mà không cần chú thích
+    - sử dụng thẻ figure và figcaption khi muốn đây là một khối riêng biệt người đọc có thể nhận biết được nội dung mà không cần phụ thuộc vào các phần ở trên
