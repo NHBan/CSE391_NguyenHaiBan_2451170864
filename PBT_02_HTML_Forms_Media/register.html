@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nguyen Hai Ban</title>
+</head>
+
+<body>
+    <Form action="#" method="post">
+        <h2>Form dang ky</h2>
+        <fieldset>
+            <legend>Thong tin ca nhan</legend>
+            <label for="name">Ho ten</label>
+            <input type="text" id="name" required minlength="2" maxlength="50" placeholder="Ho va ten">
+            <label for="email">email</label>
+            <input type="email" name="" id="email" required placeholder="email">
+            <label for="tel">So dien thoai</label>
+            <input type="tel" name="" id="tel" pattern="[0-9]{10}" placeholder="so dien thoai">
+            <label for="date">Ngay sinh</label>
+            <input type="date" name="" id="date" max="2026-04-22" placeholder="Ngay sinh">
+        </fieldset>
+        <fieldset>
+            <legend>Tai khoan</legend>
+            <label for="">Username</label>
+            <input type="text" name="" id="username" pattern="^[0-9a-zA-Z]{3,20}$" placeholder="Nhap tu 3-20">
+            <label for="pass">password</label>
+            <input type="password" name="" id="pass">
+            <label for="confirm-password">confirm password</label>
+            <input type="password" name="" id="confirm-password" pattern="^(?=.*[0-9])(?=.*[A-Z]).{8.}$">
+        </fieldset>
+        <fieldset>
+            <legend>Thong tin giao hang</legend>
+            <label for="Tinh"></label>
+            <select name="" id="Tinh">
+                <option value=""> Ha Noi</option>
+                <option value="">Tinh-1</option>
+                <option value="">Tinh-2</option>
+                <option value="">Tinh-3</option>
+            </select>
+            <label for="Huyen"></label>
+            <select name="" id="Huyen">
+                <option value="">Huyen -1</option>
+                <option value="">Huyen -2</option>
+                <option value="">Huyen -3</option>
+            </select>
+            <section>
+                <textarea name="" id="" rows="3"></textarea>
+                <div>
+                    <label for="men">Nam</label>
+                    <input type="radio" name="gender" id="men" checked>
+                    <label for="women">Nu</label>
+                    <input type="radio" name="gender" id="women">
+                    <label for="orther">Khac</label>
+                    <input type="radio" name="gender" id="orther">
+                </div>
+            </section>
+        </fieldset>
+        <section>
+            <label for="check">Toi dong y voi cac dieu khoan </label>
+            <input type="checkbox" required id="check">
+            <div>
+                <button type="submit">Dang ky</button>
+            <button type="reset">Lam moi</button>
+            </div>
+        </section>
+    </Form>
+</body>
+
+</html>
