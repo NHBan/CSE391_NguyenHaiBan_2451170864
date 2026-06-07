@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <!-- Trường hợp 1 -->
+<input type="text" required value="">   <!-- User để trống -->
+<!--Thông báo lỗi vì để trống dữ liệu bới required bắt buộc không để trống-->
+
+<!-- Trường hợp 2 -->
+<input type="email" value="abc">        <!-- User gõ "abc" -->
+<!--Thông báo lỗi sai định dạng khi thiếu @-->
+<!-- Trường hợp 3 -->
+<input type="number" min="1" max="10" value="15"> <!-- User gõ 15 -->
+<!--Thong báo sai khi vượt quá giá trị cho phép-->
+<!-- Trường hợp 4 -->
+<input type="text" pattern="[0-9]{10}" value="abc123"> <!-- User gõ "abc123" -->
+<!--Thong bao nhap sai định dạng bởi trong input này chỉ cho nhập số-->
+<!-- Trường hợp 5 -->
+<input type="password" minlength="8" value="123">  <!-- User gõ "123" -->
+<!--Thong báo không đủ số lượng kí tự cho phần input này-->
+</body>
+</html>
