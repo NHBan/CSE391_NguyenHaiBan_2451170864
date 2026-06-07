@@ -26,3 +26,22 @@ Dùng khi muốn nhóm cá ô dữ liệu có liên quan đến nhau và muốn 
     3.2 Không nên sử dụng aria-label bởi :
         - ghi đe dữ liệu khi trình screenread được sử dụng nó sẽ ưu tiên aria-label mà bỏ qua label
         -khi không có sự đồng nhất giữa label và aria-label sẽ gây sự bối rỗi cho người sử dụng trình đọc màn hình
+Câu A4 
+-Giải thích thuộc tính loading="lazy" trên thẻ <img>. Nó cải thiện gì? Khi nào KHÔNG nên dùng?
+    +Thuộc tính loading=lazy là dạng người dùng đến đâu thì ảnh sẽ được tải đến đó
+     - tăng trải nghiệm cho người dùng:mượt mà bởi không phải tải một lượng ảnh cùng 1 lúc
+     -Tiết kiệm dữ liệu mạng cho người dùng
+     -giảm áp lực băng thông
+     + Không nên dùng cho những ảnh bắt buộc phải được tải lên ngay từ đầu như logo của thương hiệu
+-Tại sao nên cung cấp nhiều <source> trong thẻ <video>? Liệt kê ít nhất 3 format video web phổ biến.
+    Tại mỗi trình duyệt lại có cahsc giải mã khacs nhau nên muốn đảm bảo video được phát qua nhiều trình duyệt phải cung cấp nhiều source
+-Thuộc tính alt trên <img> dùng để làm gì? Viết alt tốt cho 3 trường hợp:
+    +Tốt cho SEO: trình duyệt độc và đề xuất tìm kiếm
+    +Khi ảnh bj lỗi hoặc chưa kịp load alt sẽ hiện để người dùng nận biết dược
+    +Hỗ trợ người khiếm thính
+Ảnh sản phẩm iPhone 16
+alt="Tông tin chi tiết của điện thoại"
+Ảnh trang trí :
+alt="" 
+Ảnh biểu đồ doanh thu Q1/2026
+alt="Thông tin chi tiết kết quả của biểu đồ"
